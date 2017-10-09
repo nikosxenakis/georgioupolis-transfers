@@ -1,0 +1,24 @@
+#canvasIndex {
+    width: 100%;
+    height: 100%;
+    background-image: url("../../../assets/images/taxiIndex1024.jpg");
+}
+
+.logoMask {
+    width: 200px;
+    height: 100px;
+}
+
+.title{
+    color: white;
+    letter-spacing: 2px;
+    text-transform: none;
+    font-weight: lighter;
+    line-height: 1.3em;
+    font-family: sans-serif;
+    font-size: 30px;
+    text-align: center;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    font : normal 100 30px/1;
+}

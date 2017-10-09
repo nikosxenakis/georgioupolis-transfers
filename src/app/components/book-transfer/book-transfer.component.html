@@ -1,0 +1,207 @@
+<!--
+<section>
+<div class="panel panel-primary">
+
+  <div class="panel-heading">Book your transfer</div>
+
+  <div class="panel-body">
+
+    <div class="row">
+
+      <div class="col-xs-12">
+
+        <form #myForm="ngForm" (ngSubmit)="onSubmitMail(myForm.value)">
+
+          <div class="row">
+            
+            <div class="col-xs-12 col-sm-6">
+
+                <div class="row">
+
+                  <div class="form-group col-xs-12">
+           
+                    <label for="firstName" class=" center-block">First Name</label>
+                    <input id="firstName" name="firstName" placeholder="e.g Jonathan" type="text" class="form-control" [(ngModel)]="bookTransferData.firstName" #firstName="ngModel" required>
+                    <pre [hidden]="firstName.valid || (firstName.pristine && !myForm.submitted)" class=" alert alert-danger">Invalid first name</pre>
+                    
+                  </div>
+
+                </div>
+            </div>
+
+            <div class="form-group col-xs-12 col-sm-6">
+              <label for="lastName" class="center-block">Last Name</label>
+              <input id="lastName" name="lastName" placeholder="e.g Morris" type="text" class="form-control" [(ngModel)]="bookTransferData.lastName" #lastName="ngModel" required>
+            </div>
+
+          </div>
+
+
+          <div class="row">
+
+            <div class="form-group col-xs-12 col-md-6">
+              <label for="email" class="center-block">Email</label>
+              <input id="email" name="email" placeholder="" type="email" class="form-control" [(ngModel)]="bookTransferData.email" #email="ngModel" required>
+
+              <div [hidden]="email.valid || (email.pristine && !myForm.submitted)" class=" alert alert-danger">Invalid email</div>
+
+            </div>
+
+            <div class="form-group col-xs-6 col-md-3">
+
+              <label for="noPeople" class="center-block">Number of People</label>
+
+              <select id="noPeople" name="noPeople" class="form-control" [(ngModel)]="bookTransferData.noPeople" #noPeople="ngModel">
+                  <option *ngFor="let noPeopleOption of noPeopleOptions" [value]="noPeopleOption.value">{{noPeopleOption.display}}</option> 
+              </select>
+
+            </div>
+
+            <div class="form-group col-xs-6 col-md-3">
+              <label>Baby Sheat</label>
+              <div>
+                <label *ngFor="let babySheatOption of babySheatOptions" class="radio-inline">
+                  <input type="radio" name="babySheat" [(ngModel)]="bookTransferData.babySheat" #babySheat="ngModel" [value]="babySheatOption.value" [checked]="babySheatOption.checked">{{babySheatOption.display}}
+                </label>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="row">
+            <div class="form-group col-xs-12">
+              <label for="comments" class="center-block">Comments</label>
+              <textarea id="comments" name="comments" placeholder="Add your comments here..." class="form-control" [(ngModel)]="bookTransferData.comments" #comments="ngModel" rows="2"></textarea>
+            </div>
+          </div>
+
+          <div class="row">
+
+            <div class="col-xs-12 col-sm-6">
+                <div class="form-group">
+                    
+                  <label class="control-label" for="date">Date</label>
+                  
+                  <input id="date" name="date" placeholder="Datepicker" class="form-control" bsDatepicker [(ngModel)]="bookTransferData.date" #date="bsDatepicker">
+                  
+                </div>
+            </div>
+
+            <div class="col-xs-12 col-sm-6">
+                <div class="form-group">
+                  <label class="control-label" for="time">Time</label>
+                  <timepicker id="time" name="time" [(ngModel)]="bookTransferData.time"></timepicker>
+                </div>
+            </div>
+
+          </div>
+
+          <div class="row">
+            <div class="col-xs-12">
+              <button type="submit" class="btn btn-primary" [disabled]="!myForm.form.valid">Confirm</button>
+            </div>
+          </div>
+
+        </form>
+
+      </div>
+
+    </div>
+  
+  </div>
+
+</div>
+
+</section>
+-->
+<!--
+<form class="form-style-7">
+    <ul>
+    <li>
+        <label for="name">Name</label>
+        <input type="text" name="name" maxlength="100">
+        <span>Enter your full name here</span>
+        
+    </li>
+    <li>
+        <label for="email">Email</label>
+        <input type="email" name="email" maxlength="100">
+        <span>Enter a valid email address</span>
+    </li>
+    <li>
+        <label for="url">Website</label>
+        <input type="url" name="url" maxlength="100">
+        <span>Your website address (eg: http://www.google.com)</span>
+    </li>
+    <li>
+        <label for="bio">About You</label>
+        <textarea name="bio" onkeyup="adjust_textarea(this)"></textarea>
+        <span>Say something about yourself</span>
+    </li>
+    <li>
+        <input type="submit" value="Send This" >
+    </li>
+    </ul>
+</form>
+-->
+
+
+
+
+
+
+<section>
+    <div class="panel panel-primary">
+      <div class="panel-heading">Book your transfer</div>
+      <div class="panel-body">
+        <div class="row">
+          <div class="col-xs-12">
+            <form #myForm="ngForm" (ngSubmit)="onSubmitMail(myForm.value)" class="form-style-7">
+              <ul>
+                <div class="row">
+                  <div class="col-xs-12 col-sm-6 form-group">
+                      <li>
+          
+                        <label for="firstName" class=" center-block">First Name</label>
+                        <input style="height: 30px;" id="firstName" name="firstName" placeholder="e.g Jonathan" type="text" [(ngModel)]="bookTransferData.firstName" #firstName="ngModel" required>
+                      
+                        <div *ngIf="!(firstName.valid || (firstName.pristine && !myForm.submitted))">
+                          <pre class="wrongInput" >Invalid name</pre>
+                        </div>
+                      
+                        <div *ngIf="firstName.pristine">
+                            <pre class="infoInput" >Enter your full name here</pre>
+                          </div>
+
+                      </li>
+                      
+                  </div>
+                  <div class="col-xs-12 col-sm-6 form-group">
+                      <li>
+                        <label for="lastName" class="center-block">Last Name</label>
+                        <input id="lastName" name="lastName" placeholder="e.g Morris" type="text" [(ngModel)]="bookTransferData.lastName" #lastName="ngModel" required>
+                        <span>Enter a valid email address</span>
+                      </li>
+                  </div>
+                  <div class="col-xs-12">
+                        <button type="submit" class="btn btn-primary" [disabled]="!myForm.form.valid">Confirm</button>
+                  </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-xs-12 col-md-6 form-group">
+                      <li></li>
+                    </div>
+                    <div class="form-group col-xs-12 col-md-3 form-group">
+                        <li></li>
+                    </div>
+                    <div class="form-group col-xs-12 col-md-3 form-group">
+                        <li></li>
+                    </div>
+                </div>
+              </ul>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+</section>

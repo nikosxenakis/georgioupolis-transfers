@@ -1,0 +1,50 @@
+<nav class="navbar navbar-default navbar-fixed-top navbar-light" [@navbarAnimation]='state'
+(@navbarAnimation.start)="animationStarted()"
+(@navbarAnimation.done)="animationDone()"
+[hidden]="isHidden">
+  <div class="container">
+    <div class="navbar-header">
+      <button #navbarToggler type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#index">{{data.title}}</a>
+      
+    </div>
+    <div id="navbar" class="collapse navbar-collapse" aria-expanded="false">
+      <ul class="nav navbar-nav">
+
+        <li><a (click)="hideMenu(); collapseNav()" href="#bookTransfer">{{data.bookTransfer}}</a></li>
+
+        <li><a (click)="hideMenu(); collapseNav()" href="#tours">{{data.tours}}</a></li>
+
+        <li><a (click)="hideMenu(); collapseNav()" href="#prices">Prices</a></li>
+        
+        <li><a (click)="hideMenu(); collapseNav()" href="#about">{{data.about}}</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li class="btn-group" dropdown>
+          <a dropdownToggle data-target="#langDropdown" class="dropdown-toggle" data-toggle="dropdown">
+            {{data.language}}
+            <span class="caret"></span>
+          </a>
+          <ul *dropdownMenu id="langDropdown" class="dropdown-menu" role="menu">
+            <li role="menuitem">
+              <a class="dropdown-item" (click)="hideMenu(); collapseNav(); changeLanguage('en')">
+                  <span class="lang-sm" lang="en"></span>
+                  English
+              </a>
+            </li>
+            <li role="menuitem">
+              <a class="dropdown-item" (click)="hideMenu(); collapseNav(); changeLanguage('gr')">
+                <span class="lang-sm" lang="el"></span>
+                Ελληνικά
+              </a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
