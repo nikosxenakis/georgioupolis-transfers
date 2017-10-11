@@ -19,7 +19,11 @@ export class BookTransferComponent {
 	bookTransferData: IBookTransferData;
 
 	date: Date = new Date();
-	
+	minDate: Date = new Date();
+	maxDate: Date = new Date();
+
+	myForm: any;
+
 	babySheatOptions = [
 		{ value: 'yes', display: 'Yes', checked:'false' },
 		{ value: 'no', display: 'No', checked:'true' }
@@ -38,6 +42,12 @@ export class BookTransferComponent {
 
 	constructor(private dataService: DataService){
 
+
+		this.minDate.setDate(this.minDate.getDate() + 0);
+		this.maxDate.setDate(this.maxDate.getDate() + 120);
+
+		console.log(this.myForm);
+
 		console.log(this.date.toLocaleDateString());
 		console.log(this.date.getUTCMonth() );
 		console.log(this.date.getMonth() );
@@ -53,7 +63,7 @@ export class BookTransferComponent {
 			firstName: '',
 			lastName: '',
 			email: '',
-			noPeople: '',
+			noPeople: 'Select an option',
 			babySheat: '',
 			comments: '',
 			date: '',

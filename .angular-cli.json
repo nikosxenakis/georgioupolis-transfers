@@ -19,9 +19,9 @@
         "../node_modules/bootstrap/dist/css/bootstrap.css",
         "../node_modules/ngx-bootstrap/datepicker/bs-datepicker.css",
         "../node_modules/font-awesome/css/font-awesome.min.css",
+        "../bower_components/font-awesome-animation/dist/font-awesome-animation.min.css",
         "../node_modules/aos/dist/aos.css",
         "./assets/styles/languages.min.css",
-        "./assets/styles/flickity-docs.css",
         "./assets/styles/styles.css"
       ],      
       "scripts": [

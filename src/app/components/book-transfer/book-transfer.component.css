@@ -1,12 +1,13 @@
 section{
 	margin: 20px; width: inherit;
 }
-
+/*
 .alert {
     margin-top: 10px;
 }
+*/
 /*
-.form-style-7{
+.formStyle{
     max-width:400px;
     margin:50px auto;
     background:#fff;
@@ -15,7 +16,7 @@ section{
     font-family: Georgia, "Times New Roman", Times, serif;
 }
 */
-.form-style-7 h1{
+.formStyle h1{
     display: block;
     text-align: center;
     padding: 0;
@@ -23,20 +24,17 @@ section{
     color: #5C5C5C;
     font-size:x-large;
 }
-.form-style-7 ul{
-    list-style:none;
-    padding:0;
-    margin:0;   
-}
-.form-style-7 li{
+
+.formDiv {
     display: block;
-    padding: 9px;
     border:1px solid #DDDDDD;
-    margin-bottom: 30px;
-    border-radius: 3px;
+    padding: 0px;
+    padding-top: 9px;
+    border-radius: 9px;
 }
+
 /*
-.form-style-7 li:last-child{
+.formStyle li:last-child{
     border:1px solid #DDDDDD;
     margin-bottom: 0px;
     text-align: center;
@@ -44,70 +42,91 @@ section{
 */
 
 
-.form-style-7 li > label{
+.formStyle .formDiv > label{
     display: block;
     float: left;
     margin-top: -19px;
+    margin-left: 10px;
     background: #FFFFFF;
     height: 14px;
     padding: 2px 5px 2px 5px;
-    color: #B9B9B9;
+    color: #8c8c8c;
     font-size: 14px;
-    font-family: Arial, Helvetica, sans-serif;
 }
-.form-style-7 input[type="text"],
-.form-style-7 input[type="date"],
-.form-style-7 input[type="datetime"],
-.form-style-7 input[type="email"],
-.form-style-7 input[type="number"],
-.form-style-7 input[type="search"],
-.form-style-7 input[type="time"],
-.form-style-7 input[type="url"],
-.form-style-7 input[type="password"],
-.form-style-7 textarea,
-.form-style-7 select 
+.formStyle input
 {
     box-sizing: border-box;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
-    /*width: 100%;*/
+    width: 100%;
     display: block;
     outline: none;
     border: none;
+    box-shadow: none;
     height: 25px;
     line-height: 25px;
     font-size: 16px;
     padding: 0;
-    font-family: Georgia, "Times New Roman", Times, serif;
+    padding-left: 15px;
+    margin-bottom: 2px;
 }
-.form-style-7 input[type="text"]:focus,
-.form-style-7 input[type="date"]:focus,
-.form-style-7 input[type="datetime"]:focus,
-.form-style-7 input[type="email"]:focus,
-.form-style-7 input[type="number"]:focus,
-.form-style-7 input[type="search"]:focus,
-.form-style-7 input[type="time"]:focus,
-.form-style-7 input[type="url"]:focus,
-.form-style-7 input[type="password"]:focus,
-.form-style-7 textarea:focus,
-.form-style-7 select:focus 
+/*
+.formStyle input[type="text"]:focus,
+.formStyle input[type="date"]:focus,
+.formStyle input[type="datetime"]:focus,
+.formStyle input[type="email"]:focus,
+.formStyle input[type="number"]:focus,
+.formStyle input[type="search"]:focus,
+.formStyle input[type="time"]:focus,
+.formStyle input[type="url"]:focus,
+.formStyle input[type="password"]:focus,
+.formStyle textarea:focus,
+.formStyle select:focus 
 {
 }
-.form-style-7 li > pre{
-    background: #F3F3F3;
-    display: block;
-    padding: 3px;
-    margin: 0 -9px -9px -9px;
-    text-align: center;
-    color: #C0C0C0;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 11px;
+*/
+
+.formStyle select{
+    max-width: 160px;
+    border: none;
+    box-shadow: none;
+    margin-left: 8px;
 }
-.form-style-7 textarea{
+
+.formStyle #date{
+}
+
+.formStyle textarea{
+    border: none;
+    width: 99%;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    outline: none;
+}
+.selectFormDiv{
+    max-width: 180px;
+}
+
+.dateFormDiv {
+    max-width: 160px;
+}
+
+.formStyle textarea{
     resize:none;
 }
-.form-style-7 input[type="submit"],
-.form-style-7 input[type="button"]{
+
+.formDivTimepicker{
+    max-width: 148px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.formDivTimepicker label{
+    margin-left: 0px;
+}
+
+.formStyle input[type="submit"],
+.formStyle input[type="button"]{
     background: #2471FF;
     border: none;
     padding: 10px 20px 10px 20px;
@@ -115,8 +134,8 @@ section{
     border-radius: 3px;
     color: #D2E2FF;
 }
-.form-style-7 input[type="submit"]:hover,
-.form-style-7 input[type="button"]:hover{
+.formStyle input[type="submit"]:hover,
+.formStyle input[type="button"]:hover{
     background: #6B9FFF;
     color:#fff;
 }
@@ -125,15 +144,48 @@ section{
 .wrongInput {
     color: #a94442; 
     background-color: #f2dede; 
-    border-radius: 3px;
     margin: 0px;
     font-size: 11px;
+    padding: 4px;
+    border: none;
+    padding: 0px;
+    padding-top: 5px;
+    border-radius: 9px;
+    border-top-right-radius: 0px;
+    border-top-left-radius: 0px;
 }
 
-infoInput {
-    color: #59d6d0; 
+.infoInput {
+    color: #63ada9; 
     background-color: #dbf1ee; 
-    border-radius: 3px;
     margin: 0px;
     font-size: 11px;
+    border: none;
+    padding: 0px;
+    padding-top: 5px;
+    border-radius: 9px;
+    border-top-right-radius: 0px;
+    border-top-left-radius: 0px;
+}
+
+.successInput {
+   /* position: relative;
+    left: 180px;
+    bottom: 25px;*/
+    margin-left: 7px;
+    color: lightseagreen;
+
+}
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    color: rgb(192, 192, 192);
+  }
+  ::-moz-placeholder { /* Firefox 19+ */
+    color: rgb(192, 192, 192);
+}
+  :-ms-input-placeholder { /* IE 10+ */
+    color: rgb(192, 192, 192);
+}
+  :-moz-placeholder { /* Firefox 18- */
+    color: rgb(192, 192, 192);
 }

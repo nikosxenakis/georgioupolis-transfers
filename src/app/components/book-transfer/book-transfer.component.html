@@ -151,57 +151,96 @@
 
 
 <section>
-    <div class="panel panel-primary">
-      <div class="panel-heading">Book your transfer</div>
-      <div class="panel-body">
+  <div class="row">
+    <div class="col-xs-12">
+      <form #myForm="ngForm" (ngSubmit)="onSubmitMail(myForm.value)" class="formStyle">
+        <h1>Book your transfer</h1>
         <div class="row">
-          <div class="col-xs-12">
-            <form #myForm="ngForm" (ngSubmit)="onSubmitMail(myForm.value)" class="form-style-7">
-              <ul>
-                <div class="row">
-                  <div class="col-xs-12 col-sm-6 form-group">
-                      <li>
-          
-                        <label for="firstName" class=" center-block">First Name</label>
-                        <input style="height: 30px;" id="firstName" name="firstName" placeholder="e.g Jonathan" type="text" [(ngModel)]="bookTransferData.firstName" #firstName="ngModel" required>
-                      
-                        <div *ngIf="!(firstName.valid || (firstName.pristine && !myForm.submitted))">
-                          <pre class="wrongInput" >Invalid name</pre>
-                        </div>
-                      
-                        <div *ngIf="firstName.pristine">
-                            <pre class="infoInput" >Enter your full name here</pre>
-                          </div>
+          <div class="col-xs-12 col-sm-6">
+            <div class="formDiv form-group">
+              <label for="firstName" class="center-block">First Name
+                <i *ngIf="(firstName.valid && !(firstName.pristine && !myForm.submitted))" 
+                class="fa fa-check successInput" aria-hidden="true">
+                </i>
+              </label>
+              <input style="height: 30px;" id="firstName" name="firstName" placeholder="e.g Jonathan" type="text" [(ngModel)]="bookTransferData.firstName" #firstName="ngModel" required>
+              <pre *ngIf="!(firstName.valid || (firstName.pristine && !myForm.submitted))" class="wrongInput" >Invalid first name</pre>
+              <pre *ngIf="firstName.pristine" class="infoInput" >Enter your first name here</pre>
+            </div>
+          </div>
+          <div class="col-xs-12 col-sm-6">
+            <div class="formDiv form-group">
+              <label for="lastName" class="center-block">Last Name
+                <i *ngIf="(lastName.valid && !(lastName.pristine && !myForm.submitted))" 
+                class="fa fa-check successInput" aria-hidden="true">
+                </i>
+              </label>
+              <input style="height: 30px;" id="lastName" name="lastName" placeholder="e.g Morris" type="text" [(ngModel)]="bookTransferData.lastName" #lastName="ngModel" required>
+              <pre *ngIf="!(lastName.valid || (lastName.pristine && !myForm.submitted))" class="wrongInput" >Invalid last name</pre>
+              <pre *ngIf="lastName.pristine" class="infoInput" >Enter your last name here</pre>
+            </div>
+          </div>
+          <div class="col-xs-12 col-sm-6">
+            <div class="formDiv form-group selectFormDiv">
+                <label for="noPeople" class="center-block">Number of People</label>
+                <select id="noPeople" name="noPeople" class="form-control" [(ngModel)]="bookTransferData.noPeople">
+                    <option disabled value="Select an option" selected>Select an option</option>
+                    <option *ngFor="let noPeopleOption of noPeopleOptions" [value]="noPeopleOption.value">{{noPeopleOption.display}}</option> 
+                </select>
+            </div>
+          </div>
 
-                      </li>
-                      
+          <div class="col-xs-12 col-sm-6">
+              <div class="formDiv form-group selectFormDiv">
+                  <label>Baby Sheat</label>
+                  <div>
+                      <label *ngFor="let babySheatOption of babySheatOptions" class="radio-inline">
+                          <input type="radio" name="babySheat" [(ngModel)]="bookTransferData.babySheat" #babySheat="ngModel" [value]="babySheatOption.value" [checked]="babySheatOption.checked">{{babySheatOption.display}}
+                      </label>
                   </div>
-                  <div class="col-xs-12 col-sm-6 form-group">
-                      <li>
-                        <label for="lastName" class="center-block">Last Name</label>
-                        <input id="lastName" name="lastName" placeholder="e.g Morris" type="text" [(ngModel)]="bookTransferData.lastName" #lastName="ngModel" required>
-                        <span>Enter a valid email address</span>
-                      </li>
-                  </div>
-                  <div class="col-xs-12">
-                        <button type="submit" class="btn btn-primary" [disabled]="!myForm.form.valid">Confirm</button>
-                  </div>
+              </div>
+            </div>
+
+            <div class="col-xs-12 col-sm-6">
+                <div class="formDiv form-group selectFormDiv">
+                    <label>Baby Sheat</label>
+
+                    <a href="your link here"><i class="fa fa-check faa-wrench faa-slow animated-hover successInput" style="background-color: inherit; font-size: 2em;"></i></a>
+                    <a href="your link here"><i class="fa fa-remove faa-wrench faa-fast animated-hover wrongInput" style="background-color: inherit; font-size: 2em;"></i></a>
                 </div>
-                <div class="row">
-                    <div class="form-group col-xs-12 col-md-6 form-group">
-                      <li></li>
-                    </div>
-                    <div class="form-group col-xs-12 col-md-3 form-group">
-                        <li></li>
-                    </div>
-                    <div class="form-group col-xs-12 col-md-3 form-group">
-                        <li></li>
-                    </div>
+              </div>
+
+              
+            
+
+          <div class="col-xs-12 col-sm-6 col-md-3">
+              <div class="formDiv form-group dateFormDiv">
+                  <label for="date" class="center-block">Date</label>
+                  <input id="date" name="date" placeholder="add date..." class="form-control" bsDatepicker [(ngModel)]="bookTransferData.date" #date="bsDatepicker" [minDate]="minDate" [maxDate]="maxDate">
                 </div>
-              </ul>
-            </form>
+          </div>
+          <div class="col-xs-12 col-sm-6">
+              <div class="formDiv form-group formDivTimepicker">
+                <label for="time" class="center-block">Time</label>
+                  <timepicker id="time" name="time" [showMeridian]="false" [(ngModel)]="bookTransferData.time"></timepicker>
+              </div>
+          </div>
+          <div class="col-xs-12 col-sm-6">
+            <div class="formDiv form-group">
+                <label for="comments" class="center-block">Comments</label>
+                <div>
+                  <textarea id="comments" name="comments" placeholder="Add your comments here..." [(ngModel)]="bookTransferData.comments"></textarea>
+                </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-xs-12">
+              <button type="submit" class="btn btn-primary" [disabled]="!myForm.form.valid">Confirm</button>
+            </div>
           </div>
         </div>
-      </div>
+      </form>
     </div>
+  </div>
 </section>

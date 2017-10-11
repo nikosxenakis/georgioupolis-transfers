@@ -5,7 +5,7 @@ import { Phrases, IPhrasesDictionary } from '../../providers/translate/phrases';
 @Component({
   selector: 'georgioupolis-taxi-index-carousel',
   templateUrl: './index-carousel.component.html',
-  styleUrls: ['./index-carousel.component.css']
+  styleUrls: ['./index-carousel.component.css', '../../../assets/styles/flickity-docs.css']
 })
 export class IndexCarouselComponent{
   
