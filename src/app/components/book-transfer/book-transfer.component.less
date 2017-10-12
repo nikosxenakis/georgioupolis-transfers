@@ -1,11 +1,10 @@
+@import "../../../assets/styles/styles.less";      // foo.less is imported
+
 section{
 	margin: 20px; width: inherit;
 }
-/*
-.alert {
-    margin-top: 10px;
-}
-*/
+
+
 /*
 .formStyle{
     max-width:400px;
@@ -16,14 +15,69 @@ section{
     font-family: Georgia, "Times New Roman", Times, serif;
 }
 */
-.formStyle h1{
-    display: block;
-    text-align: center;
-    padding: 0;
-    margin: 0px 0px 20px 0px;
-    color: #5C5C5C;
-    font-size:x-large;
+.formStyle {
+
+    .border-radius(@my-radious);
+    
+    h1 {
+        display: block;
+        text-align: center;
+        padding: 0;
+        margin: 0px 0px 20px 0px;
+        color: #5C5C5C;
+        font-size:x-large;
+    }
+
+    .formDiv > label {
+        display: block;
+        float: left;
+        margin-top: -19px;
+        margin-left: 10px;
+        background: #FFFFFF;
+        height: 14px;
+        padding: 2px 5px 2px 5px;
+        color: #8c8c8c;
+        font-size: 14px;
+    }
+
+    input {
+        box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        width: 100%;
+        display: block;
+        outline: none;
+        border: none;
+        box-shadow: none;
+        height: 25px;
+        line-height: 25px;
+        font-size: 16px;
+        padding: 0;
+        padding-left: 15px;
+        margin-bottom: 2px;
+    }
+
+    select {
+        max-width: 160px;
+        border: none;
+        box-shadow: none;
+        margin-left: 8px;
+    }
+
+    #date {
+    }
+
+    textarea {
+        border: none;
+        width: 99%;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        outline: none;
+        resize:none;
+    }
+
 }
+
 
 .formDiv {
     display: block;
@@ -33,43 +87,6 @@ section{
     border-radius: 9px;
 }
 
-/*
-.formStyle li:last-child{
-    border:1px solid #DDDDDD;
-    margin-bottom: 0px;
-    text-align: center;
-}
-*/
-
-
-.formStyle .formDiv > label{
-    display: block;
-    float: left;
-    margin-top: -19px;
-    margin-left: 10px;
-    background: #FFFFFF;
-    height: 14px;
-    padding: 2px 5px 2px 5px;
-    color: #8c8c8c;
-    font-size: 14px;
-}
-.formStyle input
-{
-    box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    width: 100%;
-    display: block;
-    outline: none;
-    border: none;
-    box-shadow: none;
-    height: 25px;
-    line-height: 25px;
-    font-size: 16px;
-    padding: 0;
-    padding-left: 15px;
-    margin-bottom: 2px;
-}
 /*
 .formStyle input[type="text"]:focus,
 .formStyle input[type="date"]:focus,
@@ -86,43 +103,35 @@ section{
 }
 */
 
-.formStyle select{
-    max-width: 160px;
-    border: none;
-    box-shadow: none;
-    margin-left: 8px;
-}
+.selectFormDiv {
 
-.formStyle #date{
-}
+    max-width: 190px;
 
-.formStyle textarea{
-    border: none;
-    width: 99%;
-    margin-top: 5px;
-    margin-bottom: 5px;
-    outline: none;
-}
-.selectFormDiv{
-    max-width: 180px;
+    label {
+        margin: 15px;
+        margin-left: 0px;
+
+        input {
+            height: 16px;
+            margin-top: 0px;
+        }
+    }
 }
 
 .dateFormDiv {
     max-width: 160px;
 }
 
-.formStyle textarea{
-    resize:none;
-}
+.formDivTimepicker {
 
-.formDivTimepicker{
     max-width: 148px;
     padding-left: 15px;
     padding-right: 15px;
-}
 
-.formDivTimepicker label{
-    margin-left: 0px;
+    label{
+        margin-left: 0px;
+    }
+
 }
 
 .formStyle input[type="submit"],
@@ -177,15 +186,24 @@ section{
 
 }
 
-::-webkit-input-placeholder { /* Chrome/Opera/Safari */
-    color: rgb(192, 192, 192);
-  }
-  ::-moz-placeholder { /* Firefox 19+ */
-    color: rgb(192, 192, 192);
-}
-  :-ms-input-placeholder { /* IE 10+ */
-    color: rgb(192, 192, 192);
-}
-  :-moz-placeholder { /* Firefox 18- */
-    color: rgb(192, 192, 192);
-}
+input{
+    .placeholder({color:rgb(192, 192, 192)})
+ }    
+
+.placeholder(@rules){
+    &::-webkit-input-placeholder{
+       @rules();
+    }
+ 
+    &:-moz-placeholder{
+       @rules();
+    }
+ 
+    &::-moz-placeholder{
+       @rules();
+    }
+ 
+    &:-ms-input-placeholder{
+       @rules();
+    }
+ }

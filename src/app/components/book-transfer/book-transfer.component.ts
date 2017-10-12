@@ -9,7 +9,7 @@ import { BookTransferEmail, IBookTransferData } from '../../classes/BookTransfer
 @Component({
 	selector: 'georgioupolis-taxi-book-transfer',
 	templateUrl: './book-transfer.component.html',
-	styleUrls: ['./book-transfer.component.css']
+	styleUrls: ['./book-transfer.component.less']
 })
 
 export class BookTransferComponent {

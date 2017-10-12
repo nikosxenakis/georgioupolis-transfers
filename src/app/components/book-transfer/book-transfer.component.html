@@ -156,7 +156,7 @@
       <form #myForm="ngForm" (ngSubmit)="onSubmitMail(myForm.value)" class="formStyle">
         <h1>Book your transfer</h1>
         <div class="row">
-          <div class="col-xs-12 col-sm-6">
+          <div class="col-xs-12 col-sm-6 col-md-4">
             <div class="formDiv form-group">
               <label for="firstName" class="center-block">First Name
                 <i *ngIf="(firstName.valid && !(firstName.pristine && !myForm.submitted))" 
@@ -168,7 +168,7 @@
               <pre *ngIf="firstName.pristine" class="infoInput" >Enter your first name here</pre>
             </div>
           </div>
-          <div class="col-xs-12 col-sm-6">
+          <div class="col-xs-12 col-sm-6 col-md-4">
             <div class="formDiv form-group">
               <label for="lastName" class="center-block">Last Name
                 <i *ngIf="(lastName.valid && !(lastName.pristine && !myForm.submitted))" 
@@ -180,17 +180,17 @@
               <pre *ngIf="lastName.pristine" class="infoInput" >Enter your last name here</pre>
             </div>
           </div>
-          <div class="col-xs-12 col-sm-6">
+          <div class="col-xs-12 col-sm-6 col-md-3">
             <div class="formDiv form-group selectFormDiv">
                 <label for="noPeople" class="center-block">Number of People</label>
-                <select id="noPeople" name="noPeople" class="form-control" [(ngModel)]="bookTransferData.noPeople">
-                    <option disabled value="Select an option" selected>Select an option</option>
+                <select id="noPeople" name="noPeople" class="form-control" [(ngModel)]="bookTransferData.noPeople" required>
+                    <option disabled value="" selected>Select an option</option>
                     <option *ngFor="let noPeopleOption of noPeopleOptions" [value]="noPeopleOption.value">{{noPeopleOption.display}}</option> 
                 </select>
             </div>
           </div>
 
-          <div class="col-xs-12 col-sm-6">
+          <div class="col-xs-12 col-sm-6 col-md-3">
               <div class="formDiv form-group selectFormDiv">
                   <label>Baby Sheat</label>
                   <div>
@@ -201,7 +201,7 @@
               </div>
             </div>
 
-            <div class="col-xs-12 col-sm-6">
+            <div class="col-xs-12 col-sm-6 col-md-3">
                 <div class="formDiv form-group selectFormDiv">
                     <label>Baby Sheat</label>
 
@@ -216,16 +216,16 @@
           <div class="col-xs-12 col-sm-6 col-md-3">
               <div class="formDiv form-group dateFormDiv">
                   <label for="date" class="center-block">Date</label>
-                  <input id="date" name="date" placeholder="add date..." class="form-control" bsDatepicker [(ngModel)]="bookTransferData.date" #date="bsDatepicker" [minDate]="minDate" [maxDate]="maxDate">
+                  <input id="date" name="date" placeholder="add date..." class="form-control" bsDatepicker [(ngModel)]="bookTransferData.date" #date="bsDatepicker" [minDate]="minDate" [maxDate]="maxDate" required>
                 </div>
           </div>
-          <div class="col-xs-12 col-sm-6">
+          <div class="col-xs-12 col-sm-6 col-md-3">
               <div class="formDiv form-group formDivTimepicker">
                 <label for="time" class="center-block">Time</label>
-                  <timepicker id="time" name="time" [showMeridian]="false" [(ngModel)]="bookTransferData.time"></timepicker>
+                  <timepicker id="time" name="time" [showMeridian]="false" [(ngModel)]="bookTransferData.time" required></timepicker>
               </div>
           </div>
-          <div class="col-xs-12 col-sm-6">
+          <div class="col-xs-12">
             <div class="formDiv form-group">
                 <label for="comments" class="center-block">Comments</label>
                 <div>

@@ -22,7 +22,8 @@
         "../bower_components/font-awesome-animation/dist/font-awesome-animation.min.css",
         "../node_modules/aos/dist/aos.css",
         "./assets/styles/languages.min.css",
-        "./assets/styles/styles.css"
+        "./assets/styles/styles.css",
+        "./assets/styles/styles.less"
       ],      
       "scripts": [
         "../node_modules/jquery/dist/jquery.js",
