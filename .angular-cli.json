@@ -22,7 +22,7 @@
         "../bower_components/font-awesome-animation/dist/font-awesome-animation.min.css",
         "../node_modules/aos/dist/aos.css",
         "./assets/styles/languages.min.css",
-        "./assets/styles/styles.css",
+        "./assets/styles/scroll.less",
         "./assets/styles/styles.less"
       ],      
       "scripts": [

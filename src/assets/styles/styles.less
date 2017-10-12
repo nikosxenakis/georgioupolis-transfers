@@ -1,18 +1,36 @@
 // Variables
 @my-radious: 0px; // sea blue
 
- /* Mixin */.border-radius (@radius: 5px) {
+.border-radius (@radius: 5px) {
     -webkit-border-radius: @radius;
     -moz-border-radius: @radius;
     border-radius: @radius;
 }
 
-html, body {
+html {
     height:100%;
     width: 100%;
 }
-    
+
+body{
+    height:100%;
+    width: 100%;
+    letter-spacing: 2px;
+    text-transform: none;
+    line-height: 1.3em;
+    text-align: center;
+    font-weight: 100;
+    font-family: sans-serif, "myFontFamily", "Palatino Linotype", "Book Antiqua", Palatino, serif;
+}
+
 section {
     width:100%;
     height: 100vh;
+}
+
+@font-face {
+    font-family: 'myFontFamily';
+    src: url('../fonts/JosefinSans-Regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
 }
