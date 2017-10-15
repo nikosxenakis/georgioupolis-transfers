@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
-
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
-import { DataService } from '../../providers/data.service';
+import { DataService } from '../../providers/dataService/data.service';
 
 import { TourEmail, ITourData } from '../../classes/TourEmail';
 
@@ -16,11 +15,13 @@ export class ToursComponent {
 
 	tourEmail: TourEmail;
 
+
 	tourData: ITourData;
+	
 
-	destinations:string[];
 
-	constructor(private dataService: DataService){
+
+	constructor(private dataService: DataService/*, private modalService: BsModalService*/){
 
 		this.tourData = {
 				email: 'defaultEmail',
@@ -31,13 +32,7 @@ export class ToursComponent {
 
 		console.log(this.tourEmail);
 
-		this.dataService.getData("https://georgioupolis-taxi.firebaseio.com/destinations.json")
-		.subscribe(
-			data => {
-				this.destinations = data as string[];
-				console.log('destinations received: ' + this.destinations)
-			}
-		);
+
 
 	}
 

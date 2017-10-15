@@ -4,7 +4,7 @@ import { Component, HostListener } from '@angular/core';
 @Component({
   selector: 'georgioupolis-taxi-moto',
   templateUrl: './moto.component.html',
-  styleUrls: ['./moto.component.css'],
+  styleUrls: ['./moto.component.less','../../../../node_modules/aos/dist/aos.css'],
   animations: [
     /*
     trigger('moveCarAnimation', [

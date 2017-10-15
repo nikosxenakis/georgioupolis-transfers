@@ -1,8 +1,7 @@
 import { Component, OnInit, Output, EventEmitter, ViewChild, ElementRef, HostListener, NgZone } from '@angular/core';
+import { trigger, state, style, transition, animate, keyframes } from '@angular/animations';
 
 import { Phrases, IPhrasesDictionary } from '../../providers/translate/phrases';
-
-import { trigger, state, style, transition, animate, keyframes } from '@angular/animations';
 
 @Component({
   selector: 'georgioupolis-taxi-navbar',

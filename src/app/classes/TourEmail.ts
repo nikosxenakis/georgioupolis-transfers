@@ -1,4 +1,4 @@
-import { DataService } from '../providers/data.service';
+import { DataService } from '../providers/dataService/data.service';
 import { Email } from './Email';
 
 export interface ITourData {

@@ -1,9 +1,9 @@
-@import "../../../assets/styles/styles.less";      // foo.less is imported
+@import "../../../assets/styles/styles.less";
 
-section{
-	margin: 20px; width: inherit;
+section {
+	padding-top: @section-margin;
+	padding-bottom: @section-margin;
 }
-
 
 /*
 .formStyle{
@@ -15,10 +15,8 @@ section{
     font-family: Georgia, "Times New Roman", Times, serif;
 }
 */
-.formStyle {
+.formStyle{
 
-    .border-radius(@my-radious);
-    
     h1 {
         display: block;
         text-align: center;
@@ -28,33 +26,61 @@ section{
         font-size:x-large;
     }
 
-    .formDiv > label {
-        display: block;
+    input[type="submit"], input[type="button"]{
+        background: #2471FF;
+        border: none;
+        padding: 10px 20px 10px 20px;
+        border-bottom: 3px solid #5994FF;
+        .border-radius(@border-radious);
+        color: #D2E2FF;
+    
+        :hover{
+            background: #6B9FFF;
+            color:#fff;
+        }
+    }
+}
+
+.formGroupDiv{
+    display: block;
+    border:1px solid #DDDDDD;
+    padding: 0px;
+    padding-top: 9px;
+    .border-radius(@border-radious);
+    margin-bottom: 30px;
+
+    label {
         float: left;
         margin-top: -19px;
         margin-left: 10px;
         background: #FFFFFF;
-        height: 14px;
+        padding: 2px 5px 2px 5px;
+        color: #8c8c8c;
+        font-size: 18px;
+    }
+
+    .row {
+        margin:15px;
+    }
+}
+
+.formDiv {
+
+    display: block;
+    border:1px solid #DDDDDD;
+    padding: 0px;
+    padding-top: 9px;
+    .border-radius(@border-radious);
+    margin-bottom: 15px;
+    
+    label {
+        float: left;
+        margin-top: -19px;
+        margin-left: 10px;
+        background: #FFFFFF;
         padding: 2px 5px 2px 5px;
         color: #8c8c8c;
         font-size: 14px;
-    }
-
-    input {
-        box-sizing: border-box;
-        -webkit-box-sizing: border-box;
-        -moz-box-sizing: border-box;
-        width: 100%;
-        display: block;
-        outline: none;
-        border: none;
-        box-shadow: none;
-        height: 25px;
-        line-height: 25px;
-        font-size: 16px;
-        padding: 0;
-        padding-left: 15px;
-        margin-bottom: 2px;
     }
 
     select {
@@ -78,15 +104,6 @@ section{
 
 }
 
-
-.formDiv {
-    display: block;
-    border:1px solid #DDDDDD;
-    padding: 0px;
-    padding-top: 9px;
-    border-radius: 9px;
-}
-
 /*
 .formStyle input[type="text"]:focus,
 .formStyle input[type="date"]:focus,
@@ -103,25 +120,48 @@ section{
 }
 */
 
-.selectFormDiv {
+.inputTextFormDiv {
+    input {
+        box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        width: 100%;
+        display: block;
+        outline: none;
+        border: none;
+        box-shadow: none;
+        height: 30px;
+        line-height: 25px;
+        font-size: 16px;
+        padding: 0;
+        padding-left: 15px;
+        margin-bottom: 2px;
+    }
+}
 
-    max-width: 190px;
+.babySheatFormDiv {
 
-    label {
-        margin: 15px;
-        text-align: right;
-        display: inline-grid;
+    max-width: 150px;
+    text-align: left;
 
-        input {
-            height: 16px;
-            margin-top: 0px;
-        }
+    input {
+        text-align: left;
+        margin: 10px;
+        margin-left: 15px;
     }
 
 }
 
+.noPeopleFormDiv {
+    max-width: 180px;
+}
+
 .dateFormDiv {
     max-width: 160px;
+
+    input{
+        cursor: pointer;
+    }
 }
 
 .formDivTimepicker {
@@ -136,75 +176,34 @@ section{
 
 }
 
-.formStyle input[type="submit"],
-.formStyle input[type="button"]{
-    background: #2471FF;
+.inputHelper {
+    margin: 0px;
+    font-size: 11px;
     border: none;
-    padding: 10px 20px 10px 20px;
-    border-bottom: 3px solid #5994FF;
-    border-radius: 3px;
-    color: #D2E2FF;
-
-    :hover{
-        background: #6B9FFF;
-        color:#fff;
-    }
+    padding: 0px;
+    padding-top: 5px;
+    .border-radius(@border-radious);
+    border-top-right-radius: 0px;
+    border-top-left-radius: 0px;
 }
 
-.wrongInput {
-    color: #a94442; 
+.info {
+    background-color: #ddeaea;
+    color: #63ada9;
+}
+
+.error {
     background-color: #f2dede; 
-    margin: 0px;
-    font-size: 11px;
-    padding: 4px;
-    border: none;
-    padding: 0px;
-    padding-top: 5px;
-    border-radius: 9px;
-    border-top-right-radius: 0px;
-    border-top-left-radius: 0px;
-}
-
-.infoInput {
-    color: #63ada9; 
-    background-color: #dbf1ee; 
-    margin: 0px;
-    font-size: 11px;
-    border: none;
-    padding: 0px;
-    padding-top: 5px;
-    border-radius: 9px;
-    border-top-right-radius: 0px;
-    border-top-left-radius: 0px;
+    color: #a94442;
 }
 
 .successInput {
-   /* position: relative;
-    left: 180px;
-    bottom: 25px;*/
     margin-left: 7px;
     color: lightseagreen;
 
 }
 
 input{
-    .placeholder({color:rgb(192, 192, 192)})
- }    
+    .placeholder(@placeholder-rule)
+}
 
-.placeholder(@rules){
-    &::-webkit-input-placeholder{
-       @rules();
-    }
- 
-    &:-moz-placeholder{
-       @rules();
-    }
- 
-    &::-moz-placeholder{
-       @rules();
-    }
- 
-    &:-ms-input-placeholder{
-       @rules();
-    }
- }

@@ -1,12 +1,42 @@
-// Variables
-@my-radious: 0px; // sea blue
+/*Variables*/
+@border-radious: 9px;
+@section-margin: 20px;
 
-.border-radius (@radius: 5px) {
+@placeholder-rule: {color:rgb(192, 192, 192)};
+
+@font-face {
+    font-family: 'myFontFamily';
+    src: url('../fonts/JosefinSans-Regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/*Functions*/
+.border-radius (@radius) {
     -webkit-border-radius: @radius;
     -moz-border-radius: @radius;
     border-radius: @radius;
 }
 
+.placeholder(@p-rule){
+    &::-webkit-input-placeholder{
+        @p-rule();
+    }
+
+    &:-moz-placeholder{
+        @p-rule();
+    }
+
+    &::-moz-placeholder{
+        @p-rule();
+    }
+
+    &:-ms-input-placeholder{
+        @p-rule();
+    }
+}
+
+/*style*/
 html {
     height:100%;
     width: 100%;
@@ -23,14 +53,6 @@ body{
     font-family: sans-serif, "myFontFamily", "Palatino Linotype", "Book Antiqua", Palatino, serif;
 }
 
-section {
+section{
     width:100%;
-    height: 100vh;
-}
-
-@font-face {
-    font-family: 'myFontFamily';
-    src: url('../fonts/JosefinSans-Regular-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
 }

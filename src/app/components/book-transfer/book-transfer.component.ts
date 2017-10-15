@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
-
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
-import { DataService } from '../../providers/data.service';
+import { DataService } from '../../providers/dataService/data.service';
 
 import { BookTransferEmail, IBookTransferData } from '../../classes/BookTransferEmail';
 
@@ -21,12 +20,16 @@ export class BookTransferComponent {
 	date: Date = new Date();
 	minDate: Date = new Date();
 	maxDate: Date = new Date();
-
+	
 	myForm: any;
 
+	public destinations:string[];
+	
+	public selected:string;
+	
 	babySheatOptions = [
-		{ value: 'yes', display: 'Yes', checked:'false' },
-		{ value: 'no', display: 'No', checked:'true' }
+		{ value: 'yes', display: 'Yes' },
+		{ value: 'no', display: 'No' }
 	];
 
 	noPeopleOptions = [
@@ -56,15 +59,23 @@ export class BookTransferComponent {
 		console.log(this.date.getUTCDay());
 		
 		console.log(this.date.getFullYear());
-		
+				
 		//this.myDate = this.mytime.toLocaleDateString();
+
+		this.dataService.getData("https://georgioupolis-taxi.firebaseio.com/destinations.json")
+		.subscribe(
+			data => {
+				this.destinations = data as string[];
+				console.log('destinations received: ' + this.destinations)
+			}
+		);
 
 		this.bookTransferData = {
 			firstName: '',
 			lastName: '',
 			email: '',
 			noPeople: 'Select an option',
-			babySheat: '',
+			babySheat: this.babySheatOptions[1].value,
 			comments: '',
 			date: '',
 			time: '',

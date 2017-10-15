@@ -1,20 +1,19 @@
 <section>
 
-  <div class="gallery js-flickity"
-  data-flickity-options='{ 
-    "pageDots": false,
+  <div class="gallery js-flickity" data-flickity='{
     "freeScroll": false,
     "wrapAround": true,
-    "imagesLoaded": true,
-    "autoPlay": true,
     "autoPlay": 5000000,
-    "adaptiveHeight": true
-  }'
-  >
-
-  <div class="gallery-cell" data-flickity-options='{ "cellAlign": "center", "contain": true }'>
-    <img src ="assets/images/indexCarousel/indexCarousel1.jpg">
-    <div class="caption-text">
+    "prevNextButtons": true,
+    "pageDots": false,
+    "initialIndex": 0,
+    "imagesLoaded": true,
+    "lazyLoad": 1,
+    "selectedAttraction": 0.01,
+    "friction": 0.15
+  }'>
+    <div class="gallery-cell">
+      <img class="carousel-cell-image" src="assets/images/default.jpg" data-flickity-lazyload="assets/images/indexCarousel/indexCarousel1.jpg">
       <a href="#bookTransfer">
         <div class="caption-text">
           <h3>The best start!</h3>
@@ -22,30 +21,32 @@
         </div>
       </a>
     </div>
-  </div>
-  <div class="gallery-cell">
-    <img src ="assets/images/indexCarousel/indexCarousel3.jpg">
-    <div class="caption-text">
-      <h3>Reliable, fast and cozy</h3>
-      <p>Using experienced english speaking drivers available for you 24/7</p>
+    <div class="gallery-cell">
+      <img class="carousel-cell-image" src="assets/images/default.jpg" data-flickity-lazyload="assets/images/indexCarousel/indexCarousel3.jpg">
+      <a>
+        <div class="caption-text">
+          <h3>Reliable, fast and cozy</h3>
+          <p>Using experienced english speaking drivers available for you 24/7</p>
+        </div>
+      </a>
     </div>
-  </div>
-  <div class="gallery-cell">
-    <img src ="assets/images/indexCarousel/indexCarousel4.jpg">
-    <div class="caption-text">
-      <h3>Secure and cheap transportation</h3>
-      <p>For you and your family from and to any destination in the island of Crete</p>
+    <div class="gallery-cell">
+      <img class="carousel-cell-image" src="assets/images/default.jpg" data-flickity-lazyload="assets/images/indexCarousel/indexCarousel4.jpg">
+      <a>
+        <div class="caption-text">
+          <h3>Secure and cheap transportation</h3>
+          <p>For you and your family from and to any destination in the island of Crete</p>
+        </div>
+      </a>
     </div>
-  </div>
-  <div class="gallery-cell">
-      <img src ="assets/images/indexCarousel/indexCarousel5.jpg">
+    <div class="gallery-cell">
+      <img class="carousel-cell-image" src="assets/images/default.jpg" data-flickity-lazyload="assets/images/indexCarousel/indexCarousel5-min.jpg">
       <a href="#tours">
         <div class="caption-text">
           <h3>Discover</h3>
           <p>Book tours to secret locations around Crete</p>
         </div>
       </a>
+    </div>
   </div>
-  </div>
-
 </section>
