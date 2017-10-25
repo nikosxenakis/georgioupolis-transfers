@@ -1,14 +1,14 @@
 <section>
 
-  <div class="gallery js-flickity" data-flickity='{
+  <div data-aos="fade-in" class="gallery js-flickity" data-flickity='{
     "freeScroll": false,
     "wrapAround": true,
-    "autoPlay": 5000000,
+    "autoPlay": 3000,
     "prevNextButtons": true,
     "pageDots": false,
     "initialIndex": 0,
     "imagesLoaded": true,
-    "lazyLoad": 1,
+    "lazyLoad": 2,
     "selectedAttraction": 0.01,
     "friction": 0.15
   }'>
@@ -16,8 +16,8 @@
       <img class="carousel-cell-image" src="assets/images/default.jpg" data-flickity-lazyload="assets/images/indexCarousel/indexCarousel1.jpg">
       <a href="#bookTransfer">
         <div class="caption-text">
-          <h3>The best start!</h3>
-          <p>We commit for your transfer from and to each airpot of Crete</p>
+          <h3>{{data.indexCarouselTitle1}}</h3>
+          <p>{{data.indexCarouselDescription1}}</p>
         </div>
       </a>
     </div>
@@ -25,8 +25,8 @@
       <img class="carousel-cell-image" src="assets/images/default.jpg" data-flickity-lazyload="assets/images/indexCarousel/indexCarousel3.jpg">
       <a>
         <div class="caption-text">
-          <h3>Reliable, fast and cozy</h3>
-          <p>Using experienced english speaking drivers available for you 24/7</p>
+          <h3>{{data.indexCarouselTitle2}}</h3>
+          <p>{{data.indexCarouselDescription2}}</p>
         </div>
       </a>
     </div>
@@ -34,8 +34,8 @@
       <img class="carousel-cell-image" src="assets/images/default.jpg" data-flickity-lazyload="assets/images/indexCarousel/indexCarousel4.jpg">
       <a>
         <div class="caption-text">
-          <h3>Secure and cheap transportation</h3>
-          <p>For you and your family from and to any destination in the island of Crete</p>
+          <h3>{{data.indexCarouselTitle3}}</h3>
+          <p>{{data.indexCarouselDescription3}}</p>
         </div>
       </a>
     </div>
@@ -43,8 +43,8 @@
       <img class="carousel-cell-image" src="assets/images/default.jpg" data-flickity-lazyload="assets/images/indexCarousel/indexCarousel5-min.jpg">
       <a href="#tours">
         <div class="caption-text">
-          <h3>Discover</h3>
-          <p>Book tours to secret locations around Crete</p>
+          <h3>{{data.indexCarouselTitle4}}</h3>
+          <p>{{data.indexCarouselDescription4}}</p>
         </div>
       </a>
     </div>

@@ -25,7 +25,7 @@ export class DataService {
     }
 
     handleError(error: any){
-        console.log(error);
+        console.error(error);
         return Observable.throw(error);
     }
 

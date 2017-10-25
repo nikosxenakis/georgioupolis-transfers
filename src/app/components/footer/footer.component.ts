@@ -4,7 +4,7 @@ import { Phrases, IPhrasesDictionary } from '../../providers/translate/phrases';
 @Component({
   selector: 'georgioupolis-taxi-footer',
   templateUrl: './footer.component.html',
-  styleUrls: ['./footer.component.css']
+  styleUrls: ['./footer.component.less']
 })
 export class FooterComponent{
 

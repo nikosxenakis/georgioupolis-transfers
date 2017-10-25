@@ -10,6 +10,8 @@ export interface IBookTransferData {
     comments: string;
     date: string;
     time: string;
+    meetingPoint: string;
+    destination: string;
 }
 
 export class BookTransferEmail extends Email implements IBookTransferData{
@@ -23,7 +25,9 @@ export class BookTransferEmail extends Email implements IBookTransferData{
     public comments: string;
     public date: string;
     public time: string;
-    
+    public meetingPoint: string;
+    public destination: string;
+
     constructor(protected dataService: DataService, ui: IBookTransferData) {
         super(dataService); 
 
@@ -41,11 +45,13 @@ export class BookTransferEmail extends Email implements IBookTransferData{
         this.comments = 'comments='+ui.comments;
         this.date = 'date='+ui.date;
         this.time = 'time='+ui.time;
+        this.meetingPoint = 'meetingPoint='+ui.meetingPoint;
+        this.destination = 'destination='+ui.destination;
     }
 
     public getQuery(){
         return this.url + '?' + this.firstName + '&' + this.lastName + '&' + this.email + '&' + this.noPeople + '&' 
-        + this.babySheat + '&' + this.comments + '&' + this.date + '&' + this.time;
+        + this.babySheat + '&' + this.comments + '&' + this.date + '&' + this.time + '&' + this.meetingPoint + '&' + this.destination;
     }
     
 }

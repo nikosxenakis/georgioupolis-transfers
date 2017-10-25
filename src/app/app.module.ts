@@ -11,6 +11,7 @@ import { BsDropdownModule, CarouselModule, BsDatepickerModule, TimepickerModule,
 import { DataService } from './providers/dataService/data.service';
 import { TranslateService } from './providers/translate/translate.service';
 import { TRANSLATION_PROVIDERS } from './providers/translate/translation';
+import { AosToken, aos } from './providers/aos';
 
 /*shared*/
 import { LoaderComponent } from './shared/loader/loader.component';
@@ -54,6 +55,7 @@ import { MotoComponent } from './components/moto/moto.component';
     DataService,
     TRANSLATION_PROVIDERS,
     TranslateService,
+    { provide: AosToken, useValue: aos }
   ],
   bootstrap: [IndexComponent]
 })

@@ -23,7 +23,6 @@ var IndexComponent = (function () {
         this.selectLang('en');
     };
     IndexComponent.prototype.selectLang = function (lang) {
-        console.log('selectLang: ' + lang);
         this._translate.use(lang);
         phrases_1.Phrases.refreshText();
     };

@@ -15,29 +15,29 @@
     <div id="navbar" class="collapse navbar-collapse" aria-expanded="false">
       <ul class="nav navbar-nav">
 
-        <li><a (click)="hideMenu(); collapseNav()" href="#bookTransfer">{{data.bookTransfer}}</a></li>
+        <li><a (click)="hideMenu()" href="#bookTransfer">{{data.bookTransfer}}</a></li>
 
-        <li><a (click)="hideMenu(); collapseNav()" href="#tours">{{data.tours}}</a></li>
+        <li><a (click)="hideMenu()" href="#tours">{{data.tours}}</a></li>
 
-        <li><a (click)="hideMenu(); collapseNav()" href="#prices">Prices</a></li>
+        <li><a (click)="hideMenu()" href="#prices">{{data.prices}}</a></li>
         
-        <li><a (click)="hideMenu(); collapseNav()" href="#about">{{data.about}}</a></li>
+        <li><a (click)="hideMenu()" href="#about">{{data.about}}</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li class="btn-group" dropdown>
-          <a dropdownToggle data-target="#langDropdown" class="dropdown-toggle" data-toggle="dropdown">
+          <a dropdownToggle data-target="#langDropdown" class="dropdown-toggle" data-toggle="dropdown" style="cursor: pointer;">
             {{data.language}}
             <span class="caret"></span>
           </a>
           <ul *dropdownMenu id="langDropdown" class="dropdown-menu" role="menu">
             <li role="menuitem">
-              <a class="dropdown-item" (click)="hideMenu(); collapseNav(); changeLanguage('en')">
+              <a class="dropdown-item" (click)="hideMenu(); changeLanguage('en')" style="cursor: pointer;">
                   <span class="lang-sm" lang="en"></span>
                   English
               </a>
             </li>
             <li role="menuitem">
-              <a class="dropdown-item" (click)="hideMenu(); collapseNav(); changeLanguage('gr')">
+              <a class="dropdown-item" (click)="hideMenu(); changeLanguage('gr')" style="cursor: pointer;">
                 <span class="lang-sm" lang="el"></span>
                 Ελληνικά
               </a>

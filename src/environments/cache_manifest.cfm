@@ -1,0 +1,21 @@
+CACHE MANIFEST
+./styles.d9194f5064d11749d19d.bundle.css
+./assets/images/indexCarousel/indexCarousel1.jpg
+./assets/images/indexCarousel/indexCarousel2.jpg
+./assets/images/indexCarousel/indexCarousel3.jpg
+./assets/images/indexCarousel/indexCarousel4.jpg
+./assets/images/indexCarousel/indexCarousel5-min.jpg
+./assets/images/logoWhite.png
+./assets/images/logo.png
+./assets/images/default.jpg
+./assets/images/icons/viber.ico
+./taxiIndex1024-min.a4dfaa8d8b60ab8058a9.jpg
+./fontawesome-webfont.af7ae505a9eed503f8b8.woff2
+./fontawesome-webfont.b06871f281fee6b241d6.ttf
+./fontawesome-webfont.fee66e712a8a08eef580.woff
+./main.925cf885904f6f876d14.bundle.js
+./vendor.536cdc5f889b5b2b17f0.bundle.js
+./scripts.950a1609227bc5c76e15.bundle.js
+./polyfills.3771d3e2d69decdd8974.bundle.js
+./inline.4aeacf20ae8473cfeba6.bundle.js
+./assets/scripts/init.js

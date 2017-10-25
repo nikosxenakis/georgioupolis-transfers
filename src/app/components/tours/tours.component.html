@@ -1,75 +1,55 @@
+
+
 <section>
-
-<div class="panel panel-primary">
-  
-    <div class="panel-heading">Tours</div>
-  
-    <div class="panel-body">
-
-
-               <!-- 
-
-        <div class="col-xs-12">
-            <div class="formDiv">
-                <label for="comments">Typeahead</label>
-                <div>
-                  <textarea id="comments" name="comments" placeholder="Add your comments..." [(ngModel)]="bookTransferData.comments"></textarea>
-                </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <h1>{{data.tours}}</h1>
+      </div>
+      <div class="col-xs-12">
+        <h5>{{data.toursDescription}}</h5>
+      </div>
+      <div class="col-xs-12">
+        <form #toursForm="ngForm" (ngSubmit)="onSubmitMail(toursForm.value)" class="formStyle" data-aos="fade-in">
+          <div class="row">
+            <div class="col-xs-12 col-md-4">
+              <div class="formDiv inputTextFormDiv center-block">
+                <label for="email">{{data.email}}
+                  <i *ngIf="email.valid" 
+                  class="fa fa-check successInput" aria-hidden="true">
+                  </i>
+                </label>
+                <input id="email" name="email" placeholder={{data.emailPlaceholder}} type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" [(ngModel)]="tourData.email" #email="ngModel" required>
+                <pre *ngIf="email.invalid && email.touched" class="error">{{data.invalidEmail}}</pre>
+                <pre *ngIf="email.pristine" class="info">{{data.enterEmail}}</pre>
+              </div>
+            </div>
+            <div class="col-xs-12 col-md-8">
+              <div class="formDiv inputTextFormDiv center-block">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" placeholder="Add your message here..." [(ngModel)]="tourData.message" #message="ngModel" required></textarea>
+              </div>
+            </div>
+            <div class="col-xs-12">
+              <button class="center-block" (click)="staticModal.show()" [disabled]="!toursForm.form.valid">Confirm</button>
             </div>
           </div>
-
-        <button type="button" class="btn btn-primary" (click)="openModal(template)">Create template modal</button>
-        
-       <template #template>
-         <div class="modal-header">
-           <h4 class="modal-title pull-left">Modal</h4>
-           <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
-             <span aria-hidden="true">&times;</span>
-           </button>
-         </div>
-         <div class="modal-body">
-           This is a modal.
-         </div>
-       </template>
-      -->
-
-  
-      <div class="row">
-        
-        <div class="col-xs-12">
-          
-          <form #toursForm="ngForm" (ngSubmit)="onSubmitMail(toursForm.value)">
-  
-        <div class="row">
-          <div class="form-group col-xs-12 col-md-6">
-            <label for="email" class="center-block">Email</label>
-            <input id="email" name="email" placeholder="" type="email" class="form-control" [(ngModel)]="tourData.email" #email="ngModel" required>
-            <div [hidden]="email.valid || (email.pristine && !toursForm.submitted)" class=" alert alert-danger">Invalid email</div>
-          </div>
-        </div>
-  
-        <div class="row">
-          <div class="form-group col-xs-12">
-            <label for="comments" class="center-block">Message</label>
-            <textarea id="comments" name="comments" placeholder="Add your comments here..." class="form-control" [(ngModel)]="tourData.message" #comments="ngModel" rows="7"></textarea>
-          </div>
-        </div>
-  
-        <div class="row">
-          <div class="col-xs-12">
-            <button type="submit" class="btn btn-primary" [disabled]="!toursForm.form.valid">Confirm</button>
-          </div>
-        </div>
-  
-          </form>
-  
-        </div>
-  
+        </form>
       </div>
-  
-
     </div>
-  
   </div>
-  
+  <div class="modal fade" bsModal #staticModal="bs-modal" [config]="{backdrop: 'static'}"
+    tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title pull-left">{{data.bookTransfer}}</h4>
+          <button type="button" class="close pull-right" aria-label="Close" (click)="staticModal.hide()">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">{{data.bookTransferMessage}}</div>
+      </div>
+    </div>
+  </div>
 </section>

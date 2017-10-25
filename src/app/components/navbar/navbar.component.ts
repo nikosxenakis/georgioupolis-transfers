@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter, ViewChild, ElementRef, HostListener, NgZone } from '@angular/core';
+import { Component, Output, EventEmitter, ViewChild, ElementRef, HostListener, NgZone } from '@angular/core';
 import { trigger, state, style, transition, animate, keyframes } from '@angular/animations';
 
 import { Phrases, IPhrasesDictionary } from '../../providers/translate/phrases';
@@ -6,7 +6,7 @@ import { Phrases, IPhrasesDictionary } from '../../providers/translate/phrases';
 @Component({
   selector: 'georgioupolis-taxi-navbar',
   templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.css'],
+  styleUrls: ['./navbar.component.css', './../../../assets/styles/languages.min.css'],
   animations: [
     trigger('navbarAnimation', [
         state('visible', style({
@@ -111,6 +111,7 @@ export class NavbarComponent{
 
   hideMenu(){
     console.log('hideMenu triggered');
+    this.collapseNav();
     if (this.navBarTogglerIsVisible()) {
       this.navbarToggler.nativeElement.click();
     }

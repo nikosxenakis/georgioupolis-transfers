@@ -1,8 +1,20 @@
 /*Variables*/
+@border: 1px solid #DDDDDD;
 @border-radious: 9px;
-@section-margin: 20px;
+
+@box-shadow: 10px 10px 5px #888888;
+@box-shadow-min: 3px 3px 3px #888888;
+
+@section-margin-small: 20px;
+@section-margin: 30px;
+
+@background-color: #ecf0f1;
+@background-color-container: white;
 
 @placeholder-rule: {color:rgb(192, 192, 192)};
+
+@button-color-text: black;
+@button-color: #e4ce54;
 
 @font-face {
     font-family: 'myFontFamily';
@@ -36,23 +48,55 @@
     }
 }
 
-/*style*/
-html {
-    height:100%;
-    width: 100%;
+@media (min-width: 0px) {
+
+    html {
+        height:100%;
+        width: 100%;
+    }
+
+    body {
+        height:100%;
+        width: 100%;
+        letter-spacing: 2px;
+        text-transform: none;
+        line-height: 1.3em;
+        text-align: center;
+        font-weight: 100;
+        font-family: sans-serif, "myFontFamily", Arial;
+        background-color: @background-color;
+    }
+
+    section {
+        width:100%;
+        height: inherit;
+        padding-top: 0px;
+        padding-bottom: @section-margin-small;
+    }
+
+    button {
+        background-color: @button-color;
+        font-weight: bolder;
+        font-size: 18px;
+        border: none;
+        padding: 10px 20px 10px 20px;
+        color: @button-color-text;
+        border-radius: @border-radious;
+        opacity: 0.8;
+        
+        &:hover {
+            background-color: @button-color;
+            opacity: 1;
+        }
+
+        &:disabled {
+            opacity: 0.4;
+        }
+    }
 }
 
-body{
-    height:100%;
-    width: 100%;
-    letter-spacing: 2px;
-    text-transform: none;
-    line-height: 1.3em;
-    text-align: center;
-    font-weight: 100;
-    font-family: sans-serif, "myFontFamily", "Palatino Linotype", "Book Antiqua", Palatino, serif;
-}
-
-section{
-    width:100%;
+@media (min-width: 426px) {
+    section {
+        margin-bottom: @section-margin;
+    }
 }

@@ -1,14 +1,21 @@
-section{
-    height: 100vh;
+@import "../../../assets/styles/styles.less";
+
+@media (min-width: 0px) {
+    section{
+        height: 100vh;
+        padding-bottom: 0px;
+    }
+}
+
+@media (min-width: 426px) {
+
 }
 
 canvas {
     height: 100%;
-    background-image: url("../../../assets/images/taxiIndex1024-min.jpg");
+    width: 100%;
+    background-image: url("../../../assets/images/moto/taxiIndex1024-min.jpg");
     background-size: cover;
-    //background-image: url("../../../assets/images/taxiIndex1024.jpg");
-    //background-image: url("../../../assets/images/taxiIndex1024-min.jpg");
-    //background-image: url("../../../assets/images/indexCarousel/indexCarousel1.jpg");
 }
 
 table {
@@ -29,14 +36,5 @@ table {
 
 .title{
     color: white;
-    letter-spacing: 2px;
-    text-transform: none;
-    font-weight: lighter;
-    line-height: 1.3em;
-    font-family: sans-serif;
     font-size: 30px;
-    text-align: center;
-    -webkit-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-    font : normal 100 30px/1;
 }

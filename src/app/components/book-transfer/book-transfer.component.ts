@@ -1,9 +1,27 @@
-import { Component } from '@angular/core';
+import { Component, TemplateRef, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { BsDatepickerConfig } from 'ngx-bootstrap/datepicker';
+import { Inject, InjectionToken } from '@angular/core';
 
 import { DataService } from '../../providers/dataService/data.service';
+import { Phrases, IPhrasesDictionary } from '../../providers/translate/phrases';
+import { AosToken } from '../../providers/aos';
 
 import { BookTransferEmail, IBookTransferData } from '../../classes/BookTransferEmail';
+
+
+interface IBookTransferModel {
+	firstName: string;
+	lastName: string;
+	email: string;
+	noPeople: string;
+	babySheat: string;
+	comments: string;
+	date: Date;
+	time: Date;
+	meetingPoint: string;
+	destination: string;
+}
 
 @Component({
 	selector: 'georgioupolis-taxi-book-transfer',
@@ -13,19 +31,22 @@ import { BookTransferEmail, IBookTransferData } from '../../classes/BookTransfer
 
 export class BookTransferComponent {
 
-	bookTransferEmail: BookTransferEmail;
+	data: IPhrasesDictionary;
+	
+	bookTransferModel: IBookTransferModel;
 	
 	bookTransferData: IBookTransferData;
-
-	date: Date = new Date();
+	
+	bookTransferEmail: BookTransferEmail;
+	
 	minDate: Date = new Date();
 	maxDate: Date = new Date();
-	
+
 	myForm: any;
 
-	public destinations:string[];
+	aos: any;
 	
-	public selected:string;
+	destinations:string[];
 	
 	babySheatOptions = [
 		{ value: 'yes', display: 'Yes' },
@@ -43,25 +64,26 @@ export class BookTransferComponent {
 		{ value: '8', display: '8' }	
 	];
 
-	constructor(private dataService: DataService){
+	bsConfig: Partial<BsDatepickerConfig>;
 
+	constructor(private dataService: DataService, @Inject(AosToken) aos){
 
-		this.minDate.setDate(this.minDate.getDate() + 0);
-		this.maxDate.setDate(this.maxDate.getDate() + 120);
-
-		console.log(this.myForm);
-
-		console.log(this.date.toLocaleDateString());
-		console.log(this.date.getUTCMonth() );
-		console.log(this.date.getMonth() );
-		
-		console.log(this.date.getDate());
-		console.log(this.date.getUTCDay());
-		
-		console.log(this.date.getFullYear());
-				
-		//this.myDate = this.mytime.toLocaleDateString();
-
+		this.destinations = [
+			"Kalives",
+			"Kefalas",
+			"Vrises",
+			"Kavros",
+			"Lake of Kournas",
+			"Chania city",
+			"Chania airport CHQ",
+			"Heraklion city",
+			"Heraklion airport HER",
+			"Sfakia",
+			"Vamos",
+			"Rethymno",
+			"Plakias"
+		];
+		/*
 		this.dataService.getData("https://georgioupolis-taxi.firebaseio.com/destinations.json")
 		.subscribe(
 			data => {
@@ -69,38 +91,56 @@ export class BookTransferComponent {
 				console.log('destinations received: ' + this.destinations)
 			}
 		);
+		*/
+		this.data = Phrases.getPhrasesDictionary();
+		this.aos = aos;
 
-		this.bookTransferData = {
+		this.bsConfig = Object.assign({}, {containerClass: 'theme-blue'});
+		
+		this.minDate.setDate(this.minDate.getDate() + 0);
+		this.maxDate.setDate(this.maxDate.getDate() + 120);
+
+		this.bookTransferModel = {
 			firstName: '',
 			lastName: '',
 			email: '',
-			noPeople: 'Select an option',
+			noPeople: '',
 			babySheat: this.babySheatOptions[1].value,
 			comments: '',
-			date: '',
-			time: '',
+			date: new Date(),
+			time: new Date(),
+			meetingPoint: '',
+			destination: ''
+		};
+
+		//console.log(this.myForm);
+	}
+
+	ngOnInit (){
+		this.aos.init({
+			easing: "ease-in-out-sine"
+		});
+	}
+	
+	onSubmitMail(form: any){
+
+		this.bookTransferData = {
+			firstName: this.bookTransferModel.firstName,
+			lastName: this.bookTransferModel.lastName,
+			email: this.bookTransferModel.email,
+			noPeople: this.bookTransferModel.noPeople,
+			babySheat: this.bookTransferModel.babySheat,
+			comments: this.bookTransferModel.comments,
+			date: this.bookTransferModel.date.toLocaleDateString(),
+			time: this.bookTransferModel.time.getHours() + ":"+ this.bookTransferModel.time.getMinutes(),
+			meetingPoint: this.bookTransferModel.meetingPoint,
+			destination: this.bookTransferModel.destination
 		};
 
 		this.bookTransferEmail = new BookTransferEmail(this.dataService, this.bookTransferData);
 		
 		console.log(this.bookTransferEmail);
 
-	}
-
-
-	onSubmitMail(form: any){
-		console.log(form);
-		/*
-		let myDate = form.date.toLocaleDateString();
-		let myTime = form.date.getHours() + " : " + form.getMinutes();
-		
-		console.log('Date = ' + myDate);
-		console.log('Time = ' + myTime);
-		*/
-		this.bookTransferEmail.read(this.bookTransferData);
-	
 		this.bookTransferEmail.sendMail();
-
 	}
-
 }

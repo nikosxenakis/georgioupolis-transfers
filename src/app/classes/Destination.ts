@@ -4,7 +4,7 @@ export interface IDestination {
 	price: number;
 	duration: number;
 }
-
+/*
 export class Destinations {
 	static destinations: IDestination[] = new Array<IDestination>(
 		{"destination": "kefalas", "distance": 15, "price": 30, "duration": 25},
@@ -18,3 +18,4 @@ export class Destinations {
 		}
 	}
 }
+*/
