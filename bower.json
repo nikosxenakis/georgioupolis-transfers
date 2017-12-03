@@ -1,0 +1,22 @@
+{
+  "name": "georgioupolis-taxi",
+  "description": "",
+  "main": "",
+  "authors": [
+    "nikosxenakis"
+  ],
+  "license": "Xenakis Nikolaos",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "flickity": "^2.0.10",
+    "font-awesome-animation": "^0.1.0"
+  }
+}
