@@ -20,8 +20,8 @@
                   </i>
                 </label>
                 <input id="email" name="email" placeholder={{data.emailPlaceholder}} type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" [(ngModel)]="tourData.email" #email="ngModel" required>
-                <pre *ngIf="email.invalid && email.touched" class="error">{{data.invalidEmail}}</pre>
-                <pre *ngIf="email.pristine" class="info">{{data.enterEmail}}</pre>
+                <pre *ngIf="email.invalid && email.dirty" class="error">{{data.invalidEmail}}</pre>
+                <pre *ngIf="email.pristine && !email.dirty" class="info">{{data.enterEmail}}</pre>
               </div>
             </div>
             <div class="col-xs-12 col-md-8">

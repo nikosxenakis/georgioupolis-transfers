@@ -4,14 +4,13 @@
 
 <georgioupolis-taxi-index-carousel id="carousel"><loader></loader></georgioupolis-taxi-index-carousel>
 
-<georgioupolis-taxi-book-transfer id="bookTransfer"><loader></loader></georgioupolis-taxi-book-transfer>
+<georgioupolis-taxi-book-transfer id="bookTransfer" #bookTransfer><loader></loader></georgioupolis-taxi-book-transfer>
 
 <georgioupolis-taxi-tours id="tours"><loader></loader></georgioupolis-taxi-tours>
 
-<georgioupolis-taxi-prices id="prices"><loader></loader></georgioupolis-taxi-prices>
+<georgioupolis-taxi-prices id="prices" (destinationEvent)="bookTransfer.setDestination($event)"><loader></loader></georgioupolis-taxi-prices>
 
 <georgioupolis-taxi-footer id="about"><loader></loader></georgioupolis-taxi-footer>
-
 <!--
 <georgioupolis-taxi-navbar (changeLangEvent)="selectLang($event)"></georgioupolis-taxi-navbar>
 

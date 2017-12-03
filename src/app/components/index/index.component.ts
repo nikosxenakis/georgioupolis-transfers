@@ -29,4 +29,7 @@ export class IndexComponent implements OnInit {
     Phrases.refreshText();
   }
 
+  setDestination(){
+    console.log("HERE");
+  }
 }

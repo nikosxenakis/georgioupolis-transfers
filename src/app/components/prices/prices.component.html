@@ -3,32 +3,54 @@
     <div class="row">
       <div class="col-xs-12">
         <h2>{{data.priceTable}}</h2>
-      </div>
-      <div class="col-xs-12">
         <h5>{{data.priceTableDescription}}</h5>
-      </div>
-      <div class="col-xs-12">
         <a href="#bookTransfer"><button class="bookNowButton">{{data.bookNow}}</button></a>
       </div>
       <div class="col-xs-12">
-        <div class="table-responsive" data-aos="zoom-in">
-          <table class="table">
+        <h4>{{data.chaniaPriceTableTitle}}</h4>
+        <div class="table-responsive" data-aos="fade-in">
+          <table class="table table-hover">
             <thead>
               <tr>
                 <th>{{data.destination}}</th>
                 <th>{{data.priceEuros}}</th>
-                <th>{{data.durationHours}}</th>
-                <th>{{data.distanceKm}}</th>
+                <th class="fluidVisibilityCols">{{data.durationHours}}</th>
+                <th class="fluidVisibilityCols">{{data.distanceKm}}</th>
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let destinationDetails of destinationsDetails">
-                <td>{{destinationDetails.destination}}</td>
-                <td>{{destinationDetails.price}} €</td>
-                <td *ngIf="destinationDetails.distance != 0">{{destinationDetails.distance}} km</td>
-                <td *ngIf="destinationDetails.distance == 0">-</td>
-                <td *ngIf="destinationDetails.duration != 0">{{destinationDetails.duration}} h</td>
-                <td *ngIf="destinationDetails.duration == 0">-</td>
+              <tr *ngFor="let destinationChaniaDetails of destinationsChaniaDetails" [ngx-scroll-to]="'#bookTransfer'" (click)="bookTransfer('Chania airport CHQ', destinationChaniaDetails)">
+                <td>{{destinationChaniaDetails.destination}}</td>
+                <td>{{destinationChaniaDetails.price}} €</td>
+                <td class="fluidVisibilityCols" *ngIf="destinationChaniaDetails.distance != 0">{{destinationChaniaDetails.distance}} km</td>
+                <td class="fluidVisibilityCols" *ngIf="destinationChaniaDetails.distance == 0">-</td>
+                <td class="fluidVisibilityCols" *ngIf="destinationChaniaDetails.duration != 0">{{destinationChaniaDetails.duration}} h</td>
+                <td class="fluidVisibilityCols" *ngIf="destinationChaniaDetails.duration == 0">-</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="col-xs-12">
+        <h4>{{data.heraklionPriceTableTitle}}</h4>
+        <div class="table-responsive" data-aos="fade-in">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th>{{data.destination}}</th>
+                <th>{{data.priceEuros}}</th>
+                <th class="fluidVisibilityCols">{{data.durationHours}}</th>
+                <th class="fluidVisibilityCols">{{data.distanceKm}}</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let destinationHeraklionDetails of destinationsHeraklionDetails" [ngx-scroll-to]="'#bookTransfer'" (click)="bookTransfer('Heraklion airport HER', destinationHeraklionDetails)">
+                <td>{{destinationHeraklionDetails.destination}}</td>
+                <td>{{destinationHeraklionDetails.price}} €</td>
+                <td class="fluidVisibilityCols" *ngIf="destinationHeraklionDetails.distance != 0">{{destinationHeraklionDetails.distance}} km</td>
+                <td class="fluidVisibilityCols" *ngIf="destinationHeraklionDetails.distance == 0">-</td>
+                <td class="fluidVisibilityCols" *ngIf="destinationHeraklionDetails.duration != 0">{{destinationHeraklionDetails.duration}} h</td>
+                <td class="fluidVisibilityCols" *ngIf="destinationHeraklionDetails.duration == 0">-</td>
               </tr>
             </tbody>
           </table>

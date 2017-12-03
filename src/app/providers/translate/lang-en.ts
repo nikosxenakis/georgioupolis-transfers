@@ -62,11 +62,13 @@ export const LANG_EN_TRANS = {
     'toursDescription': 'Georgioupolis Transfers offers a whole new section in holidays experience. You are able to book one of our unique tour packages. Georgioupolis Trasfers Tours guides you from extrordinary locations to traditional places with homemade Cretan food in the region of Chania. Are you interested? The tour packages adjust depending what you are looking for. For further information contact us.',
 
     'priceTable': 'Pricetable',
-    'priceTableDescription': 'Competitive Prices for online booking from Georgioupolis to the most visited destinations in Crete.',
+    'priceTableDescription': 'Competitive Prices for online booking from Chania and Heraklion airports to the most visited destinations in Crete.',
     'bookNow': 'Book Now',
     'destination': 'Destination',
     'priceEuros': 'Price',
     'distanceKm': 'Distance',
     'durationHours': 'Duration',
-    'priceTableDetails': '*The prices are from/to Georgioupolis',
+    'priceTableDetails': '*The prices are from/to Chania and Heraklion airports',
+    'chaniaPriceTableTitle': 'Chania airport',
+    'heraklionPriceTableTitle': 'Heraklion airport',
 };

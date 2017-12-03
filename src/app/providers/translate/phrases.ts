@@ -62,6 +62,8 @@ export interface IPhrasesDictionary {
 	priceTableDetails: string,
 	comments: string,
 	toursDescription: string,
+	chaniaPriceTableTitle: string,
+	heraklionPriceTableTitle: string,
 };
 
 export module Phrases{
@@ -130,6 +132,8 @@ export module Phrases{
 		'priceTableDetails': '',
 		'comments': '',
 		'toursDescription': '',
+		'chaniaPriceTableTitle': '',
+		'heraklionPriceTableTitle': '',
 	};
 
 	export function setTranslateService(translate: TranslateService) {

@@ -1,5 +1,12 @@
 @import "../../../assets/styles/styles.less";
 
+@info-color: @button-color;
+@error-color: #f2dede;
+@success-color: lightseagreen;
+@form-background-color: #FFFFFF;
+
+@box-shadow-formGroupDiv: 1px 1px 1px @shadow-color;
+
 section {
 
     .container {
@@ -22,28 +29,32 @@ section {
         text-align: center;
         padding: 0;
         margin: 0px 0px 20px 0px;
-        color: #5C5C5C;
+        color: @text-color;
         font-size:x-large;
     }
 
 }
 
-.formGroupDiv{
+.formGroupDiv {
     display: block;
-    border:1px solid #DDDDDD;
+    border: @border;
     padding: 0px;
     padding-top: 9px;
     .border-radius(@border-radious);
     margin-bottom: 30px;
 
+    &:hover {
+        box-shadow: @box-shadow-formGroupDiv;
+    }
+
     label {
         float: left;
         margin-top: -19px;
         margin-left: 10px;
-        background: #FFFFFF;
+        background: @form-background-color;
         padding: 2px 5px 2px 5px;
-        color: #8c8c8c;
-        font-size: 18px;
+        color: @text-color;
+        font-size: 19px;
     }
 
     .row {
@@ -54,20 +65,24 @@ section {
 .formDiv {
 
     display: block;
-    border:1px solid #DDDDDD;
+    border: @border;
     padding: 0px;
     padding-top: 9px;
     .border-radius(@border-radious);
     margin-bottom: 15px;
 
+    &:hover {
+        box-shadow: @box-shadow-formGroupDiv;
+    }
+
     label {
         float: left;
         margin-top: -19px;
         margin-left: 10px;
-        background: #FFFFFF;
+        background: @form-background-color;
         padding: 2px 5px 2px 5px;
-        color: #8c8c8c;
-        font-size: 14px;
+        color: @text-color;
+        font-size: 15px;
     }
 
     select {
@@ -81,22 +96,19 @@ section {
 }
 
 .inputTextFormDiv {
+
     input, textarea {
-        box-sizing: border-box;
-        -webkit-box-sizing: border-box;
-        -moz-box-sizing: border-box;
         width: 100%;
-        display: block;
         outline: none;
         border: none;
         box-shadow: none;
         height: 30px;
-        line-height: 25px;
         font-size: 16px;
         padding: 0;
         padding-left: 15px;
         margin-bottom: 2px;
     }
+
 }
 
 .babySheatFormDiv {
@@ -138,7 +150,7 @@ section {
 
 .info, .error {
     margin: 0px;
-    font-size: 11px;
+    font-size: 13px;
     border: none;
     padding: 0px;
     padding-top: 5px;
@@ -148,18 +160,18 @@ section {
 }
 
 .info {
-    background-color: #f7eb5a;
-    color: #54272f;
+    background-color: @info-color;
+    color: @text-color;
 }
 
 .error {
-    background-color: #f2dede; 
-    color: #54272f;
+    background-color: @error-color; 
+    color: @text-color;
 }
 
 .successInput {
     margin-left: 7px;
-    color: lightseagreen;
+    color: @success-color;
 
 }
 

@@ -22,8 +22,8 @@
                         </i>
                       </label>
                       <input id="firstName" name="firstName" placeholder={{data.firstNamePlaceholder}} type="text" [(ngModel)]="bookTransferModel.firstName" #firstName="ngModel" required minlength="2">
-                      <pre *ngIf="email.invalid && email.touched" class="error" >{{data.invalidFirstName}}</pre>
-                      <pre *ngIf="firstName.pristine" class="info" >{{data.enterFirstName}}</pre>
+                      <pre *ngIf="firstName.invalid && firstName.dirty" class="error" >{{data.invalidFirstName}}</pre>
+                      <pre *ngIf="firstName.pristine && !firstName.dirty" class="info" >{{data.enterFirstName}}</pre>
                     </div>
                   </div>
                   <div class="col-xs-12 col-md-4">
@@ -34,8 +34,8 @@
                         </i>
                       </label>
                       <input id="lastName" name="lastName" placeholder={{data.lastNamePlaceholder}} type="text" [(ngModel)]="bookTransferModel.lastName" #lastName="ngModel" required minlength="3">
-                      <pre *ngIf="email.invalid && email.touched" class="error">{{data.invalidLastName}}</pre>
-                      <pre *ngIf="lastName.pristine" class="info">{{data.enterLastName}}</pre>
+                      <pre *ngIf="lastName.invalid && lastName.dirty" class="error">{{data.invalidLastName}}</pre>
+                      <pre *ngIf="lastName.pristine && !lastName.dirty" class="info">{{data.enterLastName}}</pre>
                     </div>
                   </div>
                   <div class="col-xs-12 col-md-4">
@@ -46,8 +46,8 @@
                         </i>
                       </label>
                       <input id="email" name="email" placeholder={{data.emailPlaceholder}} type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" [(ngModel)]="bookTransferModel.email" #email="ngModel" required>
-                      <pre *ngIf="email.invalid && email.touched" class="error">{{data.invalidEmail}}</pre>
-                      <pre *ngIf="email.pristine" class="info">{{data.enterEmail}}</pre>
+                      <pre *ngIf="email.invalid && email.dirty" class="error">{{data.invalidEmail}}</pre>
+                      <pre *ngIf="email.pristine && !email.dirty" class="info">{{data.enterEmail}}</pre>
                     </div>
                   </div>
                 </div>
@@ -90,7 +90,7 @@
                             class="fa fa-check successInput" aria-hidden="true">
                             </i>
                           </label>
-                          <input name="meetingPoint" placeholder={{data.meetingPoingPlaceholder}} [(ngModel)]="bookTransferModel.meetingPoint" [typeahead]="destinations" #meetingPoint="ngModel" class="form-control" required [typeaheadMinLength]="0" dropup="true">
+                          <input name="meetingPoint" placeholder={{data.meetingPoingPlaceholder}} [(ngModel)]="bookTransferModel.meetingPoint" [typeahead]="destinations" #meetingPoint="ngModel" required [typeaheadMinLength]="0" dropup="true">
                         </div>
                       </div>
                       <div class="col-xs-12">
@@ -100,7 +100,7 @@
                             class="fa fa-check successInput" aria-hidden="true">
                             </i>
                           </label>
-                          <input name="destination" placeholder={{data.destinationPlaceholder}} [(ngModel)]="bookTransferModel.destination" [typeahead]="destinations" #destination="ngModel" class="form-control" required [typeaheadMinLength]="0" dropup="true">
+                          <input name="destination" placeholder={{data.destinationPlaceholder}} [(ngModel)]="bookTransferModel.destination" [typeahead]="destinations" #destination="ngModel" required [typeaheadMinLength]="0" dropup="true">
                         </div>
                       </div>
                     </div>
@@ -116,7 +116,7 @@
                       <div class="col-xs-12 col-lg-6">
                         <div class="formDiv dateFormDiv inputTextFormDiv center-block">
                           <label for="date">{{data.date}}</label>
-                          <input id="date" name="date" placeholder={{data.datePlaceholder}} class="form-control" bsDatepicker [(ngModel)]="bookTransferModel.date" #date="bsDatepicker" [minDate]="minDate" [maxDate]="maxDate"  [bsConfig]="bsConfig" required>
+                          <input id="date" name="date" placeholder={{data.datePlaceholder}} bsDatepicker [(ngModel)]="bookTransferModel.date" #date="bsDatepicker" [minDate]="minDate" [maxDate]="maxDate"  [bsConfig]="bsConfig" required>
                         </div>
                       </div>
                     </div>
@@ -125,9 +125,9 @@
               </div>
             </div>
             <div class="col-xs-12">
-              <div class="formDiv inputTextFormDiv center-block">
+              <div class="formGroupDiv formDiv inputTextFormDiv center-block">
                 <label for="comments">{{data.comments}}</label>
-                <textarea id="comments" name="comments" placeholder="Add your comments here..." [(ngModel)]="bookTransferModel.comments" #comments="ngModel"></textarea>
+                <textarea id="comments" name="comments" placeholder="Add your comments here..." [(ngModel)]="bookTransferModel.comments" #comments="ngModel" rows="4"></textarea>
               </div>
             </div>
             <div class="col-xs-12">

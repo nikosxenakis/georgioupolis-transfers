@@ -2,19 +2,19 @@
 @border: 1px solid #DDDDDD;
 @border-radious: 9px;
 
-@box-shadow: 10px 10px 5px #888888;
-@box-shadow-min: 3px 3px 3px #888888;
+@shadow-color: #888888;
+@box-shadow: 10px 10px 5px @shadow-color;
+@box-shadow-min: 3px 3px 3px @shadow-color;
 
 @section-margin-small: 20px;
 @section-margin: 30px;
 
 @background-color: #ecf0f1;
 @background-color-container: white;
+@button-color: #f7eb5a;
+@text-color: #5C5C5C;
 
 @placeholder-rule: {color:rgb(192, 192, 192)};
-
-@button-color-text: black;
-@button-color: #e4ce54;
 
 @font-face {
     font-family: 'myFontFamily';
@@ -63,7 +63,7 @@
         line-height: 1.3em;
         text-align: center;
         font-weight: 100;
-        font-family: sans-serif, "myFontFamily", Arial;
+        font-family: sans-serif, /*"myFontFamily",*/ Arial;
         background-color: @background-color;
     }
 
@@ -80,7 +80,7 @@
         font-size: 18px;
         border: none;
         padding: 10px 20px 10px 20px;
-        color: @button-color-text;
+        color: @text-color;
         border-radius: @border-radious;
         opacity: 0.8;
         

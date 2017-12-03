@@ -81,7 +81,9 @@ export class BookTransferComponent {
 			"Sfakia",
 			"Vamos",
 			"Rethymno",
-			"Plakias"
+			"Plakias",
+			"Almirida",
+			"Georgioupolis"
 		];
 		/*
 		this.dataService.getData("https://georgioupolis-taxi.firebaseio.com/destinations.json")
@@ -95,7 +97,7 @@ export class BookTransferComponent {
 		this.data = Phrases.getPhrasesDictionary();
 		this.aos = aos;
 
-		this.bsConfig = Object.assign({}, {containerClass: 'theme-blue'});
+		this.bsConfig = Object.assign({}, {containerClass: 'theme-default'});
 		
 		this.minDate.setDate(this.minDate.getDate() + 0);
 		this.maxDate.setDate(this.maxDate.getDate() + 120);
@@ -122,6 +124,11 @@ export class BookTransferComponent {
 		});
 	}
 	
+	setDestination(obj: any){
+		this.bookTransferModel.meetingPoint = obj.airport;
+		this.bookTransferModel.destination = obj.destination;
+	}
+
 	onSubmitMail(form: any){
 
 		this.bookTransferData = {

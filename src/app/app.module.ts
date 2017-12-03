@@ -6,6 +6,7 @@ import { HttpModule } from '@angular/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { BsDropdownModule, CarouselModule, BsDatepickerModule, TimepickerModule, CollapseModule, TypeaheadModule, ModalModule } from 'ngx-bootstrap';
+import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
 
 /*services*/
 import { DataService } from './providers/dataService/data.service';
@@ -49,6 +50,7 @@ import { MotoComponent } from './components/moto/moto.component';
     BsDropdownModule.forRoot(),
     CarouselModule.forRoot(),
     CollapseModule,
+    ScrollToModule.forRoot(),
     BrowserAnimationsModule
   ],
   providers: [
