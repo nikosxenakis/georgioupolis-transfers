@@ -11,10 +11,15 @@
 
 @background-color: #ecf0f1;
 @background-color-container: white;
+@basic-dark-color: #a79b14;
 @button-color: #f7eb5a;
 @text-color: #5C5C5C;
 
 @placeholder-rule: {color:rgb(192, 192, 192)};
+
+@error-color: #f2dede;
+@success-color: lightseagreen;
+@form-background-color: #FFFFFF;
 
 @font-face {
     font-family: 'myFontFamily';
@@ -92,6 +97,27 @@
         &:disabled {
             opacity: 0.4;
         }
+    }
+
+    a.btn.btn-link {
+        color: @basic-dark-color;
+    }
+
+    .bs-datepicker-head {
+        background-color: @basic-dark-color;
+        color: @text-color;
+    }
+
+    .bs-datepicker-body {
+        .selected {
+            background-color: @basic-dark-color;
+            color: @text-color;
+        }
+    }
+    
+    .dropdown-menu > .active > a, .dropdown-menu > .active > a:hover, .dropdown-menu > .active > a:focus {
+        background-color: @basic-dark-color;
+        color: @text-color;
     }
 }
 

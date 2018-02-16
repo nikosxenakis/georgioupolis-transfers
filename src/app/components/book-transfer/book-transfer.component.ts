@@ -97,7 +97,7 @@ export class BookTransferComponent {
 		this.data = Phrases.getPhrasesDictionary();
 		this.aos = aos;
 
-		this.bsConfig = Object.assign({}, {containerClass: 'theme-default'});
+		this.bsConfig = Object.assign({}, {containerClass: null});
 		
 		this.minDate.setDate(this.minDate.getDate() + 0);
 		this.maxDate.setDate(this.maxDate.getDate() + 120);
