@@ -81,9 +81,8 @@ TODO:
 	essentials:
 		-add to google
 		-fix email in tours
-		-add hand over table
 		-when price data is pressed set the destinations in bookTransfer as valid
-		-change moto photo
+		-change photos
 	v2:
 		-add up arrow button
 		-add tours

@@ -24,6 +24,7 @@
         "../bower_components/flickity/dist/flickity.min.css",
         "../node_modules/aos/dist/aos.css",
         "./assets/styles/scroll.less",
+        "./assets/styles/variables.less",
         "./assets/styles/styles.less"
       ],
       "scripts": [
