@@ -11,22 +11,21 @@ export class DataService {
 
     constructor(private http: Http) { }
 
-    getData(url: string): Observable<any[]> {
-        return this.http.get(url)
-        .map(
-            (response: Response) => {
-                let res = response.json();
-                return res;
-            }
-        )
-        .catch(
-            this.handleError
-        );
+    resolveRespone(response: Response): Observable<Response> {
+        return response.json();
     }
 
-    handleError(error: any){
+    handleError(error: any): Observable<any> {
         console.error(error);
         return Observable.throw(error);
     }
+
+    getData(url: string): Observable<any[]> {
+        return this.http.get(url)
+        .map(this.resolveRespone)
+        .catch(this.handleError)
+    }
+
+
 
 }

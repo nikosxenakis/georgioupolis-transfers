@@ -8,7 +8,7 @@ import { LANG_GR_NAME, LANG_GR_TRANS } from './lang-gr';
 export const TRANSLATIONS = new InjectionToken('translations');
 
 // all translations
-export const dictionary = {
+const dictionary = {
     [LANG_EN_NAME]: LANG_EN_TRANS,
     [LANG_GR_NAME]: LANG_GR_TRANS
 };
