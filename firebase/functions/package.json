@@ -1,0 +1,10 @@
+{
+  "name": "sendEmail",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "firebase-admin": "~4.2.1",
+    "firebase-functions": "^0.5.7",
+    "nodemailer": "^4.1.0"
+  }
+}
