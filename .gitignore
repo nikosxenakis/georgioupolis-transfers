@@ -5,6 +5,9 @@
 /tmp
 /out-tsc
 
+#sensitive data
+/firebase/functions/index.js
+
 # dependencies
 /node_modules/
 /bower_components/
