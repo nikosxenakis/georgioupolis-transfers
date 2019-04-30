@@ -1,5 +1,7 @@
 # Georgioupolis Tranfers
 
+[![Language grade: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/nikosxenakis/georgioupolis-transfers.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/nikosxenakis/georgioupolis-transfers/context:javascript)
+
 ## Guidelines
 
 Installation:
