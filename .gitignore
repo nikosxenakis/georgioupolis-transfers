@@ -1,44 +1,53 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
-# compiled output
+# Compiled output
 /dist
 /tmp
 /out-tsc
+/bazel-out
+/firebase/public
 
-#sensitive data
+# Sensitive data
 /firebase/functions/index.js
 
-# dependencies
+# Node
 /node_modules/
 /bower_components/
 /firebase/functions/node_modules/
+npm-debug.log
+yarn-error.log
 
-# IDEs and editors
-/.idea
-.project
-.classpath
-.c9/
-*.launch
-.settings/
-*.sublime-workspace
-
-# IDE - VSCode
+# Visual Studio Code
 .vscode/*
 !.vscode/settings.json
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
+.history/*
 
-# misc
-/.sass-cache
+# Miscellaneous
+/.angular/cache
+.angular/
+.sass-cache/
 /connect.lock
 /coverage
 /libpeerconnection.log
-npm-debug.log
 testem.log
 /typings
-/package-lock.json
 
-# System Files
-.DS_Store
-Thumbs.db
+# Firebase
+.firebase/
+*-debug.log
+.runtimeconfig.json
+firebase-debug.log
+firestore-debug.log
+ui-debug.log
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Build outputs
+*.js.map
+*.d.ts.map

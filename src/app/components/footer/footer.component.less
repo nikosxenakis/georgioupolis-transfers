@@ -1,170 +1,164 @@
 @import "../../../assets/styles/styles.less";
 
-@footer-background-color: #292c2f;
+@footer-background-color: #1a1d1f;
 footer {
-	bottom: 0;
-	background-color: @footer-background-color;
-	box-sizing: border-box;
-	width: 100%;
-	text-align: left;
+  bottom: 0;
+  background-color: @footer-background-color;
+  box-sizing: border-box;
+  text-align: left;
+  font-family: "Roboto", sans-serif;
+  padding: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
 
-	padding: 35px 30px;
+  .footer-left,
+  .footer-right {
+    display: inline-block;
+    vertical-align: top;
+  }
 
-	.footer-left, .footer-center, .footer-right {
-		display: inline-block;
-		vertical-align: top;
-	}
+  .footer-left {
+    width: 55%;
 
-	.footer-left {
-		width: 40%;
+    h3 {
+      color: white;
+      font-family: "Roboto", sans-serif;
+      font-size: 2rem;
+      font-weight: 700;
+      margin: 0 0 1rem 0;
+      letter-spacing: 0.5px;
 
-		h3 {
-			color: @text-color;
-			font: normal 36px 'Cookie', cursive;
-			margin: 0;
+      span {
+        color: @basic-color;
+      }
+    }
 
-			span{
-				color: @basic-color;
-			}
-		}
-	
-		h6 {
-			color: @text-secondary-color;
-			font-weight: 100;
-		}
-	
-		.footer-links {
-			color:  @text-secondary-color;
-			margin: 20px 0 12px;
-			padding: 0;
+    h6 {
+      color: #c5c5c5;
+      font-weight: 300;
+      font-size: 1rem;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
 
-			a {
-				display: inline-block;
-				line-height: 1.8;
-				color:  inherit;
-			}
-		}
+    .footer-links {
+      color: @text-secondary-color;
+      margin: 20px 0 12px;
+      padding: 0;
 
-		.footer-company-name{
-			color: @text-secondary-color;
-			font-size: 14px;
-			font-weight: normal;
-			margin: 0;
-		}
+      a {
+        display: inline-block;
+        line-height: 1.8;
+        color: inherit;
+      }
+    }
 
-	}
+    .footer-company-name {
+      color: @text-secondary-color;
+      font-size: 14px;
+      font-weight: normal;
+      margin: 0;
+    }
+  }
 
+  .footer-right {
+    margin-left: 20px;
+    width: 40%;
 
-	.footer-center {
-		width: 35%;
+    .footer-company-about {
+      line-height: 1.6;
+      color: #c5c5c5;
+      font-size: 13px;
+      font-weight: normal;
+      margin: 0 0 1.5rem 0;
 
-		i, img {
-			background-color:  #33383b;
-			color: @text-secondary-color;
-			font-size: 25px;
-			width: 38px;
-			height: 38px;
-			border-radius: 50%;
-			text-align: center;
-			line-height: 42px;
-			margin-top: 10px;
-			vertical-align: middle;
-		}
+      span {
+        display: block;
+        color: #e0e0e0;
+        font-size: 15px;
+        font-weight: 600;
+        margin-bottom: 1rem;
+        letter-spacing: 0.3px;
+      }
+    }
 
-		p {
-			display: inline-block;
-			color: @text-secondary-color;
-			vertical-align: middle;
-			margin:0;
-			font-size: 12px;
-			
-			span {
-				display:block;
-				font-weight: normal;
-				font-size:14px;
-				line-height:2;
-			}
+    .footer-icons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
 
-			a {
-				color:  #5383d3;
-				text-decoration: none;;
-			}
-		}
+      a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        height: 44px;
+        cursor: pointer;
+        background-color: #2a2d30;
+        border-radius: 50%;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 
-		#emailFooter{
-			display: inline-block;
-			color: @text-secondary-color;
-			vertical-align: middle;
-			margin:0;
-			font-size: 13px;
+        svg {
+          color: #c5c5c5;
+          transition: color 0.3s ease;
+        }
 
-			.fa-envelope{
-				font-size: 17px;
-				line-height: 38px;
-			}
-		}
-	}
+        &:hover {
+          background-color: #3a3d40;
+          transform: translateY(-3px);
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 
-	.footer-right {
-		width: 20%;
+          svg {
+            color: white;
+          }
+        }
 
-		.footer-company-about {
-			line-height: 20px;
-			color:  #92999f;
-			font-size: 13px;
-			font-weight: normal;
-			margin: 0;
+        &.whatsapp-icon:hover {
+          background-color: #25d366;
+        }
 
-			span {
-				display: block;
-				color: @text-secondary-color;
-				font-size: 14px;
-				font-weight: bold;
-				margin-bottom: 20px;
-			}
-		}
+        &.linkedin-icon:hover {
+          background-color: #0077b5;
+        }
 
-		.footer-icons {
-			margin-top: 25px;
+        &.website-icon:hover {
+          background-color: @basic-dark-color;
+        }
 
-			a {
-				display: inline-block;
-				width: 35px;
-				height: 35px;
-				cursor: pointer;
-				background-color:  #33383b;
-				border-radius: 2px;
-			
-				font-size: 20px;
-				color: @text-secondary-color;
-				text-align: center;
-				line-height: 35px;
-			
-				margin-right: 3px;
-				margin-bottom: 5px;
-			}
-		}
-	}
+        &.email-icon:hover {
+          background-color: #c84e4e;
+        }
 
+        &.location-icon:hover {
+          background-color: #1f7a8c;
+        }
+      }
+    }
+  }
 }
 
-/* If you don't want the footer to be responsive, remove these media queries */
+/* Responsive footer */
 @media (max-width: 880px) {
+  footer {
+    padding: 3rem 1.5rem 1.5rem;
 
-	footer {
-		.footer-left, .footer-center, .footer-right{
-			display: block;
-			width: 100%;
-			margin-bottom: 40px;
-			text-align: center;
-		}
+    .footer-left,
+    .footer-right {
+      display: block;
+      width: 100%;
+      margin-bottom: 3rem;
+      text-align: center;
+    }
 
-		.footer-center {
+    .footer-left h3 {
+      font-size: 1.75rem;
+    }
 
-			i{
-				margin-left: 0;
-			}
-		}
-	}
-
+    .footer-right {
+      .footer-icons {
+        justify-content: center;
+      }
+    }
+  }
 }

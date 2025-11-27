@@ -1,52 +1,72 @@
 <section>
+  <div class="carousel-wrapper container">
+    <div class="carousel-track" #carouselTrack>
+      <div class="carousel-slide">
+        <img src="assets/images/indexCarousel/indexCarousel1.jpg" alt="Transfer Service" />
+        <div class="slide-caption">
+          <h3>{{ data.indexCarouselTitle1 }}</h3>
+          <p>{{ data.indexCarouselDescription1 }}</p>
+        </div>
+      </div>
+      <div class="carousel-slide">
+        <img src="assets/images/indexCarousel/indexCarousel2.jpg" alt="Professional Service" />
+        <div class="slide-caption">
+          <h3>{{ data.indexCarouselTitle2 }}</h3>
+          <p>{{ data.indexCarouselDescription2 }}</p>
+        </div>
+      </div>
+      <div class="carousel-slide">
+        <img src="assets/images/indexCarousel/indexCarousel4.jpg" alt="Comfortable Journey" />
+        <div class="slide-caption">
+          <h3>{{ data.indexCarouselTitle3 }}</h3>
+          <p>{{ data.indexCarouselDescription3 }}</p>
+        </div>
+      </div>
+      <div class="carousel-slide">
+        <img src="assets/images/indexCarousel/indexCarousel5-min.jpg" alt="Tours" />
+        <a href="#tours">
+          <div class="slide-caption">
+            <h3>{{ data.indexCarouselTitle4 }}</h3>
+            <p>{{ data.indexCarouselDescription4 }}</p>
+          </div>
+        </a>
+      </div>
+    </div>
 
-  <div data-aos="fade-in" class="gallery js-flickity" data-flickity='{
-    "freeScroll": false,
-    "wrapAround": true,
-    "autoPlay": 3000,
-    "prevNextButtons": true,
-    "pageDots": false,
-    "initialIndex": 0,
-    "imagesLoaded": true,
-    "lazyLoad": 2,
-    "selectedAttraction": 0.01,
-    "friction": 0.15
-  }'>
-    <div class="gallery-cell">
-      <img rel="preload" as="image" class="carousel-cell-image" src="assets/images/indexCarousel/indexCarousel1.jpg">
-      <a href="#bookTransfer">
-        <div class="caption-text">
-          <h3>{{data.indexCarouselTitle1}}</h3>
-          <p>{{data.indexCarouselDescription1}}</p>
-        </div>
-      </a>
-    </div>
-    <div class="gallery-cell">
-      <img rel="preload" as="image" class="carousel-cell-image" src="assets/images/indexCarousel/indexCarousel2.jpg">
-      <a>
-        <div class="caption-text">
-          <h3>{{data.indexCarouselTitle2}}</h3>
-          <p>{{data.indexCarouselDescription2}}</p>
-        </div>
-      </a>
-    </div>
-    <div class="gallery-cell">
-      <img rel="preload" as="image" class="carousel-cell-image" src="assets/images/indexCarousel/indexCarousel4.jpg">
-      <a>
-        <div class="caption-text">
-          <h3>{{data.indexCarouselTitle3}}</h3>
-          <p>{{data.indexCarouselDescription3}}</p>
-        </div>
-      </a>
-    </div>
-    <div class="gallery-cell">
-      <img rel="preload" as="image" class="carousel-cell-image" src="assets/images/indexCarousel/indexCarousel5-min.jpg">
-      <a href="#tours">
-        <div class="caption-text">
-          <h3>{{data.indexCarouselTitle4}}</h3>
-          <p>{{data.indexCarouselDescription4}}</p>
-        </div>
-      </a>
+    <button class="carousel-btn prev-btn" (click)="prevSlide()" aria-label="Previous slide">
+      <svg
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+      >
+        <polyline points="15 18 9 12 15 6"></polyline>
+      </svg>
+    </button>
+
+    <button class="carousel-btn next-btn" (click)="nextSlide()" aria-label="Next slide">
+      <svg
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+      >
+        <polyline points="9 18 15 12 9 6"></polyline>
+      </svg>
+    </button>
+
+    <div class="carousel-dots">
+      <button
+        *ngFor="let slide of slides; let i = index"
+        class="dot"
+        [class.active]="i === currentSlide"
+        (click)="goToSlide(i)"
+        [attr.aria-label]="'Go to slide ' + (i + 1)"
+      ></button>
     </div>
   </div>
 </section>

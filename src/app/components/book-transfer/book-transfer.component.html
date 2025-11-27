@@ -1,153 +1,155 @@
 <section>
   <div class="container">
     <div class="row">
-      <div class="col-xs-12">
+      <div class="col-12">
         <h1>{{data.bookTransfer}}</h1>
-      </div>
-      <div class="col-xs-12">
         <h5>{{data.bookTransferDescription}}</h5>
       </div>
-      <div class="col-xs-12">
-        <form #myForm="ngForm" (ngSubmit)="onSubmitMail(myForm.value)" class="formStyle" data-aos="fade-in">
-          <div class="row">
-            <div class="col-xs-12">
-              <div class="formGroupDiv">
-                <label for="firstName">{{data.personalInfo}}</label>
-                <div class=" row">
-                  <div class="col-xs-12 col-md-4">
-                    <div class="formDiv inputTextFormDiv center-block">
-                      <label for="firstName">{{data.firstName}}
-                        <i *ngIf="firstName.valid" 
-                        class="fa fa-check successInput" aria-hidden="true">
-                        </i>
-                      </label>
-                      <input id="firstName" name="firstName" placeholder={{data.firstNamePlaceholder}} type="text" [(ngModel)]="bookTransferModel.firstName" #firstName="ngModel" required minlength="2">
-                      <pre *ngIf="firstName.invalid && firstName.dirty" class="error" >{{data.invalidFirstName}}</pre>
-                      <pre *ngIf="firstName.pristine && !firstName.dirty" class="info" >{{data.enterFirstName}}</pre>
-                    </div>
-                  </div>
-                  <div class="col-xs-12 col-md-4">
-                    <div class="formDiv inputTextFormDiv center-block">
-                      <label for="lastName">{{data.lastName}}
-                        <i *ngIf="lastName.valid" 
-                        class="fa fa-check successInput" aria-hidden="true">
-                        </i>
-                      </label>
-                      <input id="lastName" name="lastName" placeholder={{data.lastNamePlaceholder}} type="text" [(ngModel)]="bookTransferModel.lastName" #lastName="ngModel" required minlength="3">
-                      <pre *ngIf="lastName.invalid && lastName.dirty" class="error">{{data.invalidLastName}}</pre>
-                      <pre *ngIf="lastName.pristine && !lastName.dirty" class="info">{{data.enterLastName}}</pre>
-                    </div>
-                  </div>
-                  <div class="col-xs-12 col-md-4">
-                    <div class="formDiv inputTextFormDiv center-block">
-                      <label for="email">{{data.email}}
-                        <i *ngIf="email.valid" 
-                        class="fa fa-check successInput" aria-hidden="true">
-                        </i>
-                      </label>
-                      <input id="email" name="email" placeholder={{data.emailPlaceholder}} type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" [(ngModel)]="bookTransferModel.email" #email="ngModel" required>
-                      <pre *ngIf="email.invalid && email.dirty" class="error">{{data.invalidEmail}}</pre>
-                      <pre *ngIf="email.pristine && !email.dirty" class="info">{{data.enterEmail}}</pre>
-                    </div>
-                  </div>
-                </div>
+    </div>
+
+    <form #myForm="ngForm" (ngSubmit)="onSubmitMail(myForm.value)" class="formStyle">
+      <!-- Personal Information -->
+      <div class="row">
+        <div class="col-12 col-md-3 mb-3">
+          <div class="form-field">
+            <label for="firstName">{{data.firstName}}</label>
+            <input id="firstName" name="firstName" [placeholder]="data.firstNamePlaceholder" type="text"
+                   [(ngModel)]="bookTransferModel.firstName" #firstName="ngModel"
+                   required minlength="2" class="form-control">
+            <small *ngIf="firstName.invalid && firstName.touched" class="text-danger">{{data.invalidFirstName}}</small>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-3 mb-3">
+          <div class="form-field">
+            <label for="lastName">{{data.lastName}}</label>
+            <input id="lastName" name="lastName" [placeholder]="data.lastNamePlaceholder" type="text"
+                   [(ngModel)]="bookTransferModel.lastName" #lastName="ngModel"
+                   required minlength="3" class="form-control">
+            <small *ngIf="lastName.invalid && lastName.touched" class="text-danger">{{data.invalidLastName}}</small>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-6 mb-3">
+          <div class="form-field">
+            <label for="email">{{data.email}}</label>
+            <input id="email" name="email" [placeholder]="data.emailPlaceholder" type="email"
+                   pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+                   [(ngModel)]="bookTransferModel.email" #email="ngModel"
+                   required class="form-control">
+            <small *ngIf="email.invalid && email.touched" class="text-danger">{{data.invalidEmail}}</small>
+          </div>
+        </div>
+      </div>
+
+      <!-- Trip Details -->
+      <div class="row">
+        <div class="col-12 col-md-6 mb-3">
+          <div class="form-field">
+            <label for="meetingPoint">{{data.meetingPoint}}</label>
+            <input name="meetingPoint" [placeholder]="data.meetingPoingPlaceholder"
+                   [(ngModel)]="bookTransferModel.meetingPoint"
+                   [typeahead]="destinations" #meetingPoint="ngModel"
+                   required [typeaheadMinLength]="0" dropup="true" class="form-control">
+          </div>
+        </div>
+
+        <div class="col-12 col-md-6 mb-3">
+          <div class="form-field">
+            <label for="destination">{{data.destination}}</label>
+            <input name="destination" [placeholder]="data.destinationPlaceholder"
+                   [(ngModel)]="bookTransferModel.destination"
+                   [typeahead]="destinations" #destination="ngModel"
+                   required [typeaheadMinLength]="0" dropup="true" class="form-control">
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-12 col-md-3 mb-3">
+          <div class="form-field">
+            <label for="date">{{data.date}}</label>
+            <input id="date" name="date" [placeholder]="data.datePlaceholder"
+                   bsDatepicker [(ngModel)]="bookTransferModel.date" #date="bsDatepicker"
+                   [minDate]="minDate" [maxDate]="maxDate" [bsConfig]="bsConfig"
+                   required class="form-control">
+          </div>
+        </div>
+
+        <div class="col-12 col-md-3 mb-3">
+          <div class="form-field">
+            <label for="time">{{data.time}}</label>
+            <timepicker id="time" name="time" [showSpinners]="false" [showMeridian]="false"
+                        [(ngModel)]="bookTransferModel.time" required></timepicker>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-2 mb-3">
+          <div class="form-field">
+            <label for="noPeople">{{data.passengers}}</label>
+            <select id="noPeople" name="noPeople" [(ngModel)]="bookTransferModel.noPeople"
+                    required class="form-control">
+              <option disabled value="" selected>{{data.select}}</option>
+              <option *ngFor="let noPeopleOption of noPeopleOptions" [value]="noPeopleOption.value">
+                {{noPeopleOption.display}}
+              </option>
+            </select>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-4 mb-3">
+          <div class="form-field">
+            <label>{{data.babySheat}}</label>
+            <div class="radio-group">
+              <div *ngFor="let babySheatOption of babySheatOptions" class="form-check form-check-inline">
+                <input type="radio" name="babySheat"
+                       [(ngModel)]="bookTransferModel.babySheat" #babySheat="ngModel"
+                       [value]="babySheatOption.value"
+                       [id]="'baby-' + babySheatOption.value" class="form-check-input">
+                <label [for]="'baby-' + babySheatOption.value" class="form-check-label">
+                  {{babySheatOption.display}}
+                </label>
               </div>
-            </div>
-            <div class="col-xs-12 col-sm-6 col-md-5 col-lg-4">
-              <div class="formGroupDiv">
-                <label for="firstName">{{data.passengersDetails}}</label>
-                <div class=" row">
-                  <div class="col-xs-12 col-sm-6">
-                    <div class="formDiv noPeopleFormDiv center-block">
-                      <label for="noPeople">{{data.passengers}}</label>
-                      <select id="noPeople" name="noPeople" [(ngModel)]="bookTransferModel.noPeople" required>
-                          <option disabled value="" selected>{{data.select}}</option>
-                          <option *ngFor="let noPeopleOption of noPeopleOptions" [value]="noPeopleOption.value">{{noPeopleOption.display}}</option> 
-                      </select>
-                    </div>
-                  </div>
-                  <div class="col-xs-12 col-sm-6">
-                    <div class="formDiv babySheatFormDiv center-block">
-                      <label>{{data.babySheat}}</label>
-                      <div *ngFor="let babySheatOption of babySheatOptions">
-                        <input type="radio" name="babySheat" [(ngModel)]="bookTransferModel.babySheat" #babySheat="ngModel" [value]="babySheatOption.value">{{babySheatOption.display}}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-xs-12 col-sm-6 col-md-7 col-lg-8">
-              <div class="formGroupDiv">
-                <label for="firstName">{{data.tripDetails}}</label>
-                <div class=" row">
-                  <div class="col-xs-12 col-md-6 col-lg-5">
-                    <div class=" row">
-                      <div class="col-xs-12">
-                        <div class="formDiv form-group inputTextFormDiv center-block">
-                          <label for="meetingPoint">{{data.meetingPoint}}
-                            <i *ngIf="meetingPoint.valid && meetingPoint.touched"
-                            class="fa fa-check successInput" aria-hidden="true">
-                            </i>
-                          </label>
-                          <input name="meetingPoint" placeholder={{data.meetingPoingPlaceholder}} [(ngModel)]="bookTransferModel.meetingPoint" [typeahead]="destinations" #meetingPoint="ngModel" required [typeaheadMinLength]="0" dropup="true">
-                        </div>
-                      </div>
-                      <div class="col-xs-12">
-                        <div class="formDiv form-group inputTextFormDiv center-block">
-                          <label for="destination">{{data.destination}}
-                            <i *ngIf="destination.valid && meetingPoint.touched"
-                            class="fa fa-check successInput" aria-hidden="true">
-                            </i>
-                          </label>
-                          <input name="destination" placeholder={{data.destinationPlaceholder}} [(ngModel)]="bookTransferModel.destination" [typeahead]="destinations" #destination="ngModel" required [typeaheadMinLength]="0" dropup="true">
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-xs-12 col-md-6 col-lg-7">
-                    <div class="row">
-                      <div class="col-xs-12 col-lg-6">
-                        <div class="formDiv form-group formDivTimepicker center-block">
-                          <label for="time">{{data.time}}</label>
-                          <timepicker id="time" name="time" [showSpinners]="true" [showMeridian]="false" [(ngModel)]="bookTransferModel.time" required></timepicker>
-                        </div>
-                      </div>
-                      <div class="col-xs-12 col-lg-6">
-                        <div class="formDiv dateFormDiv inputTextFormDiv center-block">
-                          <label for="date">{{data.date}}</label>
-                          <input id="date" name="date" placeholder={{data.datePlaceholder}} bsDatepicker [(ngModel)]="bookTransferModel.date" #date="bsDatepicker" [minDate]="minDate" [maxDate]="maxDate"  [bsConfig]="bsConfig" required>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-xs-12">
-              <div class="formGroupDiv formDiv inputTextFormDiv center-block">
-                <label for="comments">{{data.comments}}</label>
-                <textarea id="comments" name="comments" placeholder="Add your comments here..." [(ngModel)]="bookTransferModel.comments" #comments="ngModel" rows="4"></textarea>
-              </div>
-            </div>
-            <div class="col-xs-12">
-              <button class="center-block" (click)="staticModal.show()" [disabled]="!myForm.form.valid">Confirm</button>
             </div>
           </div>
-        </form>
+        </div>
       </div>
-    </div>
+
+      <!-- Comments -->
+      <div class="row">
+        <div class="col-12 mb-3">
+          <div class="form-field">
+            <label for="comments">{{data.comments}}</label>
+            <textarea id="comments" name="comments" placeholder="Add your comments here..."
+                      [(ngModel)]="bookTransferModel.comments" #comments="ngModel"
+                      rows="4" class="form-control"></textarea>
+          </div>
+        </div>
+      </div>
+
+      <!-- Submit Button -->
+      <div class="row">
+        <div class="col-12 text-center">
+          <button type="button" class="btn btn-primary btn-lg" (click)="staticModal.show()"
+                  [disabled]="!myForm.form.valid">
+            Confirm Booking
+          </button>
+        </div>
+      </div>
+    </form>
   </div>
+
+  <!-- Modal -->
   <div class="modal" bsModal #staticModal="bs-modal" [config]="{backdrop: 'static'}"
     tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-sm">
       <div class="modal-content">
         <div class="modal-header">
-            <h4 class="modal-title pull-left">{{data.bookTransfer}}</h4>
-            <button type="button" class="close pull-right" aria-label="Close" (click)="staticModal.hide()">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
+          <h4 class="modal-title pull-left">{{data.bookTransfer}}</h4>
+          <button type="button" class="close pull-right" aria-label="Close" (click)="staticModal.hide()">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
         <div class="modal-body">{{data.bookTransferMessage}}</div>
       </div>
     </div>

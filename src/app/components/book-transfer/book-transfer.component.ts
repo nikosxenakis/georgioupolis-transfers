@@ -1,11 +1,13 @@
 import { Component, TemplateRef, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { BsDatepickerConfig } from 'ngx-bootstrap/datepicker';
-import { Inject, InjectionToken } from '@angular/core';
+import { FormGroup, FormControl, Validators, FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { BsDatepickerConfig, BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import { TimepickerModule } from 'ngx-bootstrap/timepicker';
+import { TypeaheadModule } from 'ngx-bootstrap/typeahead';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 import { DataService } from '../../providers/dataService/data.service';
 import { Phrases, IPhrasesDictionary } from '../../providers/translate/phrases';
-import { AosToken } from '../../providers/aos';
 
 import { BookTransferEmail, IBookTransferData } from '../../classes/BookTransferEmail';
 
@@ -26,7 +28,9 @@ interface IBookTransferModel {
 @Component({
 	selector: 'georgioupolis-taxi-book-transfer',
 	templateUrl: './book-transfer.component.html',
-	styleUrls: ['./book-transfer.component.less']
+	styleUrls: ['./book-transfer.component.less'],
+	standalone: true,
+	imports: [CommonModule, FormsModule, BsDatepickerModule, TimepickerModule, TypeaheadModule, ModalModule]
 })
 
 export class BookTransferComponent {
@@ -44,8 +48,6 @@ export class BookTransferComponent {
 
 	myForm: any;
 
-	aos: any;
-	
 	destinations:string[];
 	
 	babySheatOptions = [
@@ -66,7 +68,7 @@ export class BookTransferComponent {
 
 	bsConfig: Partial<BsDatepickerConfig>;
 
-	constructor(private dataService: DataService, @Inject(AosToken) aos){
+	constructor(private dataService: DataService){
 
 		this.destinations = [
 			"Kalives",
@@ -95,12 +97,20 @@ export class BookTransferComponent {
 		);
 		*/
 		this.data = Phrases.getPhrasesDictionary();
-		this.aos = aos;
 
 		this.bsConfig = Object.assign({}, {containerClass: null});
 		
-		this.minDate.setDate(this.minDate.getDate() + 0);
+		// Set min date to today, max date to 120 days from now
+		this.minDate.setDate(this.minDate.getDate());
 		this.maxDate.setDate(this.maxDate.getDate() + 120);
+
+		// Set default date to tomorrow
+		const defaultDate = new Date();
+		defaultDate.setDate(defaultDate.getDate() + 1);
+
+		// Set default time to 9:00 AM
+		const defaultTime = new Date();
+		defaultTime.setHours(9, 0, 0, 0);
 
 		this.bookTransferModel = {
 			firstName: '',
@@ -109,8 +119,8 @@ export class BookTransferComponent {
 			noPeople: '',
 			babySheat: this.babySheatOptions[1].value,
 			comments: '',
-			date: new Date(),
-			time: new Date(),
+			date: defaultDate,
+			time: defaultTime,
 			meetingPoint: '',
 			destination: ''
 		};
@@ -119,9 +129,7 @@ export class BookTransferComponent {
 	}
 
 	ngOnInit (){
-		this.aos.init({
-			easing: "ease-in-out-sine"
-		});
+		// Animation now handled by directive in template
 	}
 	
 	setDestination(obj: any){

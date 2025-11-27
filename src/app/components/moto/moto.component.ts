@@ -1,14 +1,12 @@
 import { Component, HostListener, OnInit } from '@angular/core';
-//import { trigger, state, style, transition, animate, keyframes } from '@angular/animations';
-import { Inject, InjectionToken } from '@angular/core';
 
 import { Phrases, IPhrasesDictionary } from '../../providers/translate/phrases';
-import { AosToken } from '../../providers/aos';
 
 @Component({
   selector: 'georgioupolis-taxi-moto',
   templateUrl: './moto.component.html',
   styleUrls: ['./moto.component.less'],
+  standalone: true,
   animations: [
     /*
     trigger('moveCarAnimation', [
@@ -37,7 +35,6 @@ import { AosToken } from '../../providers/aos';
 export class MotoComponent implements OnInit{
 
   data: IPhrasesDictionary;
-  aos: any;
   //animation
   /*
   state: string = 'finish';
@@ -53,14 +50,11 @@ export class MotoComponent implements OnInit{
   
   }
   */
-  constructor(@Inject(AosToken) aos){
+  constructor(){
     this.data = Phrases.getPhrasesDictionary();
-    this.aos = aos;
   }
 
   ngOnInit (){
-    this.aos.init({
-      easing: "ease-in-out-sine"
-    });
+    // Animation now handled by directive in template
   }
 }

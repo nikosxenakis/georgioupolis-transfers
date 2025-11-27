@@ -1,181 +1,233 @@
 @import "../../../assets/styles/styles.less";
 
-@info-color: @button-color;
-@box-shadow-formGroupDiv: 1px 1px 1px @shadow-color;
-
 section {
+  .container {
+    max-width: 1000px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    background-color: @background-color-container;
+    border: none;
+    border-radius: 12px;
+    padding: 3rem 2rem;
+  }
 
-    .container {
-        box-shadow: @box-shadow;
-        background-color: @background-color-container;
-        border: @border;
-        .border-radius(@border-radious);
-    }
+  form {
+    margin-top: 2rem;
+  }
 
-    form {
-        margin-top: 20px;
-        margin-bottom: 20px;
-    }
+  h1 {
+    text-align: center;
+    margin-bottom: 0.5rem;
+  }
+
+  h5 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #666;
+  }
 }
 
-.formStyle{
-
-    h1 {
-        display: block;
-        text-align: center;
-        padding: 0;
-        margin: 0px 0px 20px 0px;
-        color: @text-color;
-        font-size:x-large;
-    }
-
-}
-
-.formGroupDiv {
-    display: block;
-    border: @border;
-    padding: 0px;
-    padding-top: 9px;
-    .border-radius(@border-radious);
-    margin-bottom: 30px;
-
-    &:hover {
-        box-shadow: @box-shadow-formGroupDiv;
-    }
+.formStyle {
+  .form-field {
+    margin-bottom: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 
     label {
-        float: left;
-        margin-top: -19px;
-        margin-left: 10px;
-        background: @form-background-color;
-        padding: 2px 5px 2px 5px;
-        color: @text-color;
-        font-size: 19px;
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+      color: @text-color;
+      font-size: 0.95rem;
+      white-space: nowrap;
     }
 
-    .row {
-        margin:15px;
-    }
-}
+    .form-control {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      font-size: 1rem;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      font-family: "Roboto", sans-serif;
 
-.formDiv {
-
-    display: block;
-    border: @border;
-    padding: 0px;
-    padding-top: 9px;
-    .border-radius(@border-radious);
-    margin-bottom: 15px;
-
-    &:hover {
-        box-shadow: @box-shadow-formGroupDiv;
-    }
-
-    label {
-        float: left;
-        margin-top: -19px;
-        margin-left: 10px;
-        background: @form-background-color;
-        padding: 2px 5px 2px 5px;
-        color: @text-color;
-        font-size: 15px;
-    }
-
-    select {
-        max-width: 110px;
-        background: none;
-        border: none;
-        box-shadow: none;
-        margin: 10px;
-        
-        &:focus, &:active {
-            outline: none;
-            outline-offset: 0px;
-        }
-    }
-}
-
-.inputTextFormDiv {
-
-    input, textarea {
-        width: 100%;
+      &:focus {
         outline: none;
-        border: none;
-        box-shadow: none;
-        height: 30px;
-        font-size: 16px;
-        padding: 0;
-        padding-left: 15px;
-        margin-bottom: 2px;
+        border-color: @basic-dark-color;
+        box-shadow: 0 0 0 3px rgba(167, 155, 20, 0.1);
+      }
+
+      &::placeholder {
+        color: #999;
+      }
     }
 
-}
+    select.form-control {
+      cursor: pointer;
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23333' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 1rem center;
+      padding-right: 2.5rem;
+    }
 
-.babySheatFormDiv {
+    textarea.form-control {
+      resize: vertical;
+      min-height: 100px;
+    }
 
-    max-width: 150px;
-    text-align: left;
+    small.text-danger {
+      display: block;
+      margin-top: 0.25rem;
+      color: #dc3545;
+      font-size: 0.875rem;
+    }
+  }
+
+  .radio-group {
+    display: flex;
+    gap: 1.5rem;
+    padding: 0.5rem 0;
+    align-items: center;
+    justify-content: center;
+
+    .form-check {
+      margin: 0;
+
+      .form-check-input {
+        margin-right: 0.5rem;
+        cursor: pointer;
+      }
+
+      .form-check-label {
+        cursor: pointer;
+        font-weight: 400;
+        color: @text-color;
+      }
+    }
+  }
+
+  timepicker {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    table {
+      margin: 0;
+    }
+
+    td {
+      padding: 0.15rem 0.25rem !important;
+      height: auto !important;
+    }
 
     input {
-        text-align: left;
-        margin: 10px;
-        margin-left: 15px;
+      text-align: center;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      padding: 0.65rem 0.5rem !important;
+      font-size: 1rem !important;
+      height: auto !important;
+      font-family: "Roboto", sans-serif;
+
+      &:focus {
+        outline: none;
+        border-color: @basic-dark-color;
+        box-shadow: 0 0 0 3px rgba(167, 155, 20, 0.1);
+      }
     }
 
-}
-
-.noPeopleFormDiv {
-    max-width: 150px;
-}
-
-.dateFormDiv {
-    max-width: 148px;
-    
-    input{
-        cursor: pointer;
+    // Hide spinner buttons completely
+    .btn-link {
+      display: none !important;
     }
-}
+  }
 
-.formDivTimepicker {
+  .row {
+    align-items: stretch;
+  }
 
-    max-width: 148px;
-    padding-left: 15px;
-    padding-right: 15px;
-
-    label{
-        margin-left: 0px;
-    }
-
-}
-
-.info, .error {
-    margin: 0px;
-    font-size: 13px;
+  button {
+    min-width: 200px;
+    padding: 1rem 2rem;
+    font-size: 1.125rem;
+    background-color: @button-color;
     border: none;
-    padding: 0px;
-    padding-top: 5px;
-    .border-radius(@border-radious);
-    border-top-right-radius: 0px;
-    border-top-left-radius: 0px;
-}
-
-.info {
-    background-color: @info-color;
     color: @text-color;
+
+    &:hover {
+      background-color: @basic-dark-color;
+    }
+
+    &:disabled {
+      opacity: 0.5;
+    }
+  }
 }
 
-.error {
-    background-color: @error-color; 
-    color: @text-color;
+.mb-3 {
+  margin-bottom: 1.5rem !important;
 }
 
-.successInput {
-    margin-left: 7px;
-    color: @success-color;
+// Bootstrap datepicker overrides
+:host ::ng-deep {
+  .bs-datepicker-head {
+    background-color: @basic-dark-color;
+  }
 
+  .bs-datepicker-body table td.selected,
+  .bs-datepicker-body table td span.selected {
+    background-color: @basic-dark-color;
+  }
+
+  .bs-datepicker-body table td.week span {
+    color: @basic-dark-color;
+  }
+
+  timepicker {
+    td {
+      padding: 0.15rem 0.25rem !important;
+      height: auto !important;
+    }
+
+    // Hide all spinner buttons
+    .btn-link {
+      display: none !important;
+    }
+
+    input {
+      text-align: center;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      padding: 0.65rem 0.5rem !important;
+      font-size: 1rem !important;
+      height: auto !important;
+      font-family: "Roboto", sans-serif;
+
+      &:focus {
+        outline: none;
+        border-color: @basic-dark-color;
+        box-shadow: 0 0 0 3px rgba(167, 155, 20, 0.1);
+      }
+    }
+  }
 }
 
-input{
-    .placeholder(@placeholder-rule)
+@media (min-width: 768px) {
+  section .container {
+    padding: 4rem 3rem;
+  }
 }
 
+@media (max-width: 767px) {
+  section .container {
+    padding: 2rem 1rem;
+  }
+
+  .formStyle {
+    .radio-group {
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+  }
+}

@@ -1,40 +1,91 @@
 @import "../../../assets/styles/styles.less";
 
-@media (min-width: 0px) {
-    section{
-        height: 100vh;
-        padding-bottom: 0px;
-    }
-}
-
-@media (min-width: 426px) {
-
+section {
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
 }
 
 canvas {
-    height: 100%;
-    width: 100%;
-    background-image: url("../../../assets/images/moto/taxiIndex.jpg");
-    background-size: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-image: url("../../../assets/images/moto/taxiIndex.jpg");
+  background-size: cover;
+  background-position: center;
+  z-index: 0;
 }
 
-table {
-    height:100%;
-    width: 100%;
-    position: absolute;
-    top: 0px;
+.hero-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  padding: 2rem;
+}
 
-    td {
-        border: 0px;
-    }
+.logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .logoMask {
-    width: 200px;
-    height: 100px;
+  width: 200px;
+  height: auto;
+  max-width: 80vw;
 }
 
-.title{
-    color: white;
-    font-size: 30px;
+.title-container {
+  position: absolute;
+  text-align: center;
+  bottom: 10rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 800px;
+}
+
+.title {
+  color: white;
+  font-size: 2rem;
+  font-weight: 500;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+  letter-spacing: 1px;
+}
+
+.scrollDown {
+  position: absolute;
+  bottom: 3rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+
+  a {
+    display: block;
+    text-decoration: none;
+  }
+}
+
+@media (min-width: 768px) {
+  .logoMask {
+    width: 300px;
+  }
+
+  .title-container {
+    bottom: 12rem;
+  }
+
+  .title {
+    font-size: 2.5rem;
+  }
+
+  .scrollDown {
+    bottom: 4rem;
+  }
 }

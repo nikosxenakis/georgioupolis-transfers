@@ -3,7 +3,8 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'loader',
   templateUrl: './loader.component.html',
-  styles: ['../../../../node_modules/materialize-css/dist/css/materialize.min.css']
+  styleUrls: [],
+  standalone: true
 })
-export class LoaderComponent {	
+export class LoaderComponent {
 }

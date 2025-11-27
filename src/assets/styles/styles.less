@@ -1,107 +1,121 @@
 @import "variables.less";
 
-@font-face {
-    font-family: 'myFontFamily';
-    src: url('../fonts/JosefinSans-Regular-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
-
-/*Functions*/
-.border-radius (@radius) {
-    -webkit-border-radius: @radius;
-    -moz-border-radius: @radius;
-    border-radius: @radius;
-}
-
-.placeholder(@p-rule){
-    &::-webkit-input-placeholder{
-        @p-rule();
-    }
-
-    &:-moz-placeholder{
-        @p-rule();
-    }
-
-    &::-moz-placeholder{
-        @p-rule();
-    }
-
-    &:-ms-input-placeholder{
-        @p-rule();
-    }
-}
-
 @media (min-width: 0px) {
+  html {
+    height: 100%;
+    width: 100%;
+  }
 
-    html {
-        height:100%;
-        width: 100%;
+  body {
+    height: 100%;
+    width: 100%;
+    letter-spacing: 0.5px;
+    text-transform: none;
+    line-height: 1.6;
+    text-align: center;
+    font-weight: 400;
+    font-family: "Roboto", sans-serif;
+    background-color: @background-color;
+    font-size: 16px;
+  }
+
+  section {
+    width: 100%;
+    height: inherit;
+    padding: 20px 0;
+    margin-bottom: 0;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: @text-color;
+  }
+
+  h2 {
+    font-size: 2rem;
+    font-weight: 500;
+    margin-bottom: 1.25rem;
+    color: @text-color;
+  }
+
+  h3 {
+    font-size: 1.75rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+  }
+
+  h5 {
+    font-size: 1.125rem;
+    font-weight: 400;
+    margin-bottom: 2rem;
+    color: @text-color;
+  }
+
+  p {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+  }
+
+  button {
+    background-color: @button-color;
+    font-weight: 500;
+    font-size: 16px;
+    border: none;
+    padding: 12px 32px;
+    color: @text-color;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+
+    &:hover {
+      background-color: @basic-dark-color;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     }
 
-    body {
-        height:100%;
-        width: 100%;
-        letter-spacing: 2px;
-        text-transform: none;
-        line-height: 1.3em;
-        text-align: center;
-        font-weight: 100;
-        font-family: sans-serif, /*"myFontFamily",*/ Arial;
-        background-color: @background-color;
+    &:active {
+      transform: translateY(0);
     }
 
-    section {
-        width:100%;
-        height: inherit;
-        padding-top: 0px;
-        padding-bottom: @section-margin-small;
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
     }
+  }
 
-    button {
-        background-color: @button-color;
-        font-weight: bolder;
-        font-size: 18px;
-        border: none;
-        padding: 10px 20px 10px 20px;
-        color: @text-color;
-        border-radius: @border-radious;
-        opacity: 0.8;
-        
-        &:hover {
-            background-color: @button-color;
-            opacity: 1;
-        }
+  a.btn.btn-link {
+    color: @basic-dark-color;
+  }
 
-        &:disabled {
-            opacity: 0.4;
-        }
-    }
+  .bs-datepicker-head {
+    background-color: @basic-dark-color;
+    color: @text-color;
+  }
 
-    a.btn.btn-link {
-        color: @basic-dark-color;
+  .bs-datepicker-body {
+    .selected {
+      background-color: @basic-dark-color;
+      color: @text-color;
     }
+  }
 
-    .bs-datepicker-head {
-        background-color: @basic-dark-color;
-        color: @text-color;
-    }
-
-    .bs-datepicker-body {
-        .selected {
-            background-color: @basic-dark-color;
-            color: @text-color;
-        }
-    }
-    
-    .dropdown-menu > .active > a, .dropdown-menu > .active > a:hover, .dropdown-menu > .active > a:focus {
-        background-color: @basic-dark-color;
-        color: @text-color;
-    }
+  .dropdown-menu > .active > a,
+  .dropdown-menu > .active > a:hover,
+  .dropdown-menu > .active > a:focus {
+    background-color: @basic-dark-color;
+    color: @text-color;
+  }
 }
 
-@media (min-width: 426px) {
-    section {
-        margin-bottom: @section-margin;
-    }
+@media (min-width: 768px) {
+  h1 {
+    font-size: 3rem;
+  }
+
+  h2 {
+    font-size: 2.25rem;
+  }
 }

@@ -2,17 +2,22 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { BsDropdownModule, CarouselModule, BsDatepickerModule, TimepickerModule, CollapseModule, TypeaheadModule, ModalModule } from 'ngx-bootstrap';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { CarouselModule } from 'ngx-bootstrap/carousel';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import { TimepickerModule } from 'ngx-bootstrap/timepicker';
+import { CollapseModule } from 'ngx-bootstrap/collapse';
+import { TypeaheadModule } from 'ngx-bootstrap/typeahead';
+import { ModalModule } from 'ngx-bootstrap/modal';
 import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
 
 /*services*/
 import { DataService } from './providers/dataService/data.service';
 import { TranslateService } from './providers/translate/translate.service';
 import { TRANSLATION_PROVIDERS } from './providers/translate/translation';
-import { AosToken, aos } from './providers/aos';
 
 /*shared*/
 import { LoaderComponent } from './shared/loader/loader.component';
@@ -41,7 +46,6 @@ import { MotoComponent } from './components/moto/moto.component';
   ],
   imports: [
     BrowserModule,
-    HttpModule,
     FormsModule,
     TypeaheadModule.forRoot(),
     ModalModule.forRoot(),
@@ -54,10 +58,10 @@ import { MotoComponent } from './components/moto/moto.component';
     BrowserAnimationsModule
   ],
   providers: [
+    provideHttpClient(withInterceptorsFromDi()),
     DataService,
     TRANSLATION_PROVIDERS,
-    TranslateService,
-    { provide: AosToken, useValue: aos }
+    TranslateService
   ],
   bootstrap: [IndexComponent]
 })

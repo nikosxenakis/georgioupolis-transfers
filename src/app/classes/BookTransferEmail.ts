@@ -28,7 +28,7 @@ export class BookTransferEmail extends Email implements IBookTransferData{
     public meetingPoint: string;
     public destination: string;
 
-    constructor(protected dataService: DataService, ui: IBookTransferData) {
+    constructor(protected override dataService: DataService, ui: IBookTransferData) {
         super(dataService); 
 
         this.url = 'https://us-central1-georgioupolis-taxi.cloudfunctions.net/sendBookTransferEmail';

@@ -1,4 +1,6 @@
 import { Component, Output, EventEmitter, ViewChild, ElementRef, HostListener, NgZone } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { trigger, state, style, transition, animate, keyframes } from '@angular/animations';
 
 import { Phrases, IPhrasesDictionary } from '../../providers/translate/phrases';
@@ -7,6 +9,8 @@ import { Phrases, IPhrasesDictionary } from '../../providers/translate/phrases';
   selector: 'georgioupolis-taxi-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css', './../../../assets/styles/languages.min.css'],
+  imports: [CommonModule, BsDropdownModule],
+  standalone: true,
   animations: [
     trigger('navbarAnimation', [
         state('visible', style({

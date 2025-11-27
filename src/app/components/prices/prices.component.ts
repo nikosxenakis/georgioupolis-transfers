@@ -2,28 +2,25 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 import { DataService } from '../../providers/dataService/data.service';
 import { Phrases, IPhrasesDictionary } from '../../providers/translate/phrases';
-import { Inject, InjectionToken } from '@angular/core';
-import { AosToken } from '../../providers/aos';
 
 import { IDestination } from '../../classes/Destination';
 
 @Component({
   selector: 'georgioupolis-taxi-prices',
   templateUrl: './prices.component.html',
-  styleUrls: ['./prices.component.less']
+  styleUrls: ['./prices.component.less'],
+  standalone: true
 })
 export class PricesComponent {
 
   destinationsChaniaDetails: IDestination[];
   destinationsHeraklionDetails: IDestination[];
-  
-  data: IPhrasesDictionary;
-  aos: any;
 
-  constructor(private dataService: DataService, @Inject(AosToken) aos){
+  data: IPhrasesDictionary;
+
+  constructor(private dataService: DataService){
 
     this.data = Phrases.getPhrasesDictionary();
-    this.aos = aos;
       
     this.destinationsChaniaDetails = new Array<IDestination>();
     this.destinationsHeraklionDetails = new Array<IDestination>();
@@ -82,11 +79,9 @@ export class PricesComponent {
   }
 
   @Output() destinationEvent = new EventEmitter<any>();
-  
+
   ngOnInit (){
-    this.aos.init({
-      easing: "ease-in-out-sine"
-    });
+    // Animation now handled by directive in template
   }
 
   bookTransfer(airport: string, dest: IDestination){

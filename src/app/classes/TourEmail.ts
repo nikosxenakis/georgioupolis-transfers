@@ -11,7 +11,7 @@ export class TourEmail extends Email implements ITourData {
     public email: string;
     public message: string;
 
-    constructor(protected dataService: DataService, ui: ITourData) {
+    constructor(protected override dataService: DataService, ui: ITourData) {
         super(dataService); 
 
         this.url = 'https://us-central1-georgioupolis-taxi.cloudfunctions.net/sendTourEmail';
